@@ -80,7 +80,7 @@ void display() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     glRotatef(10,1,0,0);
-    glTranslatef(0,-35,-250.0f);
+    glTranslatef(0,-30,-150.0f);
     
     GLfloat ambientColor[] = {0.7f, 0.7f, 0.7f, 1.0f};
     glLightModelfv(GL_LIGHT_MODEL_AMBIENT, ambientColor);

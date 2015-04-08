@@ -37,6 +37,11 @@ glm::vec3 ParticleSystem::getForces()
     return forces;
 }
 
+float ParticleSystem::getSmoothingRadius()
+{
+    return smoothingRadius;
+}
+
 void ParticleSystem::setForces(glm::vec3 f)
 {
     forces = f;
@@ -129,7 +134,7 @@ void ParticleSystem::initialiseHashPositions()
     {
         hashPosition = (particles[i].getPredictedPosition() + upperBounds) / cellSize;
         particles[i].setHashPosition(hashPosition);
-        int position = hashPosition.x + gridDim.x * (hashPosition.y + gridDim.y * hashPosition.z);
+//        int position = hashPosition.x + gridDim.x * (hashPosition.y + gridDim.y * hashPosition.z);
         
         
 //        if(hashGrid[position].size() < 20)
@@ -374,7 +379,7 @@ void ParticleSystem::applyForces()
 
 void ParticleSystem::particleCollision(int index){
     particleBoxCollision(index);
-    particleParticleCollision(index);
+//    particleParticleCollision(index);
 }
 
 void ParticleSystem::particleParticleCollision(int index)
@@ -426,7 +431,7 @@ void ParticleSystem::particleBoxCollision(int index)
     Particle & currParticle = particles[index];
     glm::vec3 particlePosition = currParticle.getPredictedPosition();
 
-    float radius = currParticle.getRadius();
+    float radius = smoothingRadius;// currParticle.getRadius();
     float dampingFactor = 0.5f;
     
     if(particlePosition.x - radius < lowerBounds.x + EPSILON || particlePosition.x + radius > upperBounds.x - EPSILON)
