@@ -8,8 +8,13 @@
 
 #include "ParticleSystem.h"
 #include <iostream>
+#include <tbb/tbb.h>
+#include <tbb/parallel_for.h>
+#include <tbb/blocked_range.h>
 
 int counter = 0;
+
+using namespace tbb;
 
 //Getter functions
 std::vector<Particle>& ParticleSystem::getAllParticles()
@@ -78,11 +83,7 @@ void ParticleSystem::setCellSize(float size)
     gridDim = (upperBounds-lowerBounds) / cellSize;
 }
 
-//TODO
-// Improve the neighbors search later
-// Currently naive neighbor searching
-
-std::vector <ParticleSystem::Neighbor> ParticleSystem::findNeighbors(int index)
+void ParticleSystem::findNeighbors(int index)
 {
     std::vector<Neighbor> neighborsList;
     Particle & currParticle = particles[index];
@@ -120,8 +121,6 @@ std::vector <ParticleSystem::Neighbor> ParticleSystem::findNeighbors(int index)
             }
         }
     }
-    
-    return neighborsList;
 }
 
 void ParticleSystem::initialiseHashPositions()
@@ -131,6 +130,7 @@ void ParticleSystem::initialiseHashPositions()
     hashGrid.clear();
 
     for (int i=0; i<particles.size(); i++)
+//    parallel_for(0, particles.size(), 1, [=](int i)
     {
         hashPosition = (particles[i].getPredictedPosition() + upperBounds) / cellSize;
         particles[i].setHashPosition(hashPosition);
@@ -184,6 +184,7 @@ void ParticleSystem::initialiseHashPositions()
                 hashGrid[neighborCells[j].x + gridDim.x * (neighborCells[j].y + gridDim.y * neighborCells[j].z)].push_back(i);
             }
         }
+ //   });
     }
 }
 
@@ -277,10 +278,8 @@ void ParticleSystem::update()
     
     applyForces(); // apply forces and predict position
     initialiseHashPositions();  //initialise hash positions to be used in neighbour search
-    
-    for (int i=0; i<particles.size(); i++) {
-        findNeighbors(i);
-    }
+
+    parallel_for<size_t>( 0, particles.size(), 1, [=](int x){findNeighbors(x);});
 
     for (int k=0; k<solverIterations; k++) {
 
@@ -306,6 +305,7 @@ void ParticleSystem::update()
         Particle & currParticle = particles[i];
 
         currParticle.setVelocity((currParticle.getPredictedPosition() - currParticle.getPosition()) / timeStep);
+        viscosity(i);
         currParticle.setPosition(currParticle.getPredictedPosition());
     }
 }
@@ -377,6 +377,21 @@ void ParticleSystem::applyForces()
     }
 }
 
+void ParticleSystem::viscosity(int index)
+{
+    Particle & currParticle = particles[index];
+    std::vector<int> neighbors = currParticle.getNeighborIndices();
+    
+    glm::vec3 newVelocity = currParticle.getVelocity();
+    
+    for(int i=0; i<neighbors.size(); i++)
+    {
+        newVelocity += (1/getDensity(neighbors[i])) * (particles[neighbors[i]].getVelocity() - currParticle.getVelocity()) * wPoly6Kernel( (currParticle.getPredictedPosition() - particles[neighbors[i]].getPredictedPosition()), smoothingRadius);
+    }
+    
+    currParticle.setVelocity(newVelocity);
+}
+
 void ParticleSystem::particleCollision(int index){
     particleBoxCollision(index);
 //    particleParticleCollision(index);
@@ -431,7 +446,7 @@ void ParticleSystem::particleBoxCollision(int index)
     Particle & currParticle = particles[index];
     glm::vec3 particlePosition = currParticle.getPredictedPosition();
 
-    float radius = smoothingRadius;// currParticle.getRadius();
+    float radius = currParticle.getRadius();
     float dampingFactor = 0.5f;
     
     if(particlePosition.x - radius < lowerBounds.x + EPSILON || particlePosition.x + radius > upperBounds.x - EPSILON)

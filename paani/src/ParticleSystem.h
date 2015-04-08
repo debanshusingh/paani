@@ -25,7 +25,7 @@ private:
     const float poly6Const = 315.0 / (64 * PI);
     const float spikyConst = 45.0 / (PI);
     const float restDensity = 1000.0; //1000kg/m3
-    const float smoothingRadius = 2.f;
+    const float smoothingRadius = 2.0f;
     const int solverIterations = 1;
     const float relaxation = 0.01f;
     const float timeStep = 0.016f;
@@ -68,7 +68,7 @@ public:
     
     //Function to return a list of all the neighbors within the specified distance
     // Stored as a pair of index and vector to the neighboring particle
-    std::vector<Neighbor> findNeighbors(int index);
+    void findNeighbors(int index);
     
     //function that returns the density of a particle
     float getDensity(int index);
@@ -81,6 +81,7 @@ public:
     
     //apply external forces (gravity)
     void applyForces();
+    void viscosity(int index);
     
     glm::vec3 findDeltaPosition(int index);
     void findLambda(int index);
