@@ -51,13 +51,20 @@ newSopOperator(OP_OperatorTable *table)
 }
 
 static PRM_Name		particleCountName("particleCount", "ParticleCount");
-static PRM_Default	particleCountDefault(500);
+static PRM_Default	particleCountDefault(27000);
+
+static PRM_Name		sphSmoothingRadiusName("sphSmoothingRadius", "SphSmoothingRadius");
+static PRM_Default	sphSmoothingRadiusDefault(1.5);
+
+static PRM_Name		iterationsName("timestep", "Timestep");
+static PRM_Default	iterationsDefault(10);
 
 PRM_Template
 SOP_Paani::myTemplateList[] = {
     PRM_Template(PRM_INT,	PRM_Template::PRM_EXPORT_MIN, 1, &particleCountName, &particleCountDefault, 0),
 //    PRM_Template(PRM_STRING,	PRM_Template::PRM_EXPORT_MIN, 1, &grammar, &grammarDefault, 0),
-//        PRM_Template(PRM_FLT,	PRM_Template::PRM_EXPORT_MIN, 1, &stepName, &stepDefault, 0),
+    PRM_Template(PRM_FLT,	PRM_Template::PRM_EXPORT_MIN, 1, &sphSmoothingRadiusName, &sphSmoothingRadiusDefault, 0),
+    PRM_Template(PRM_FLT,	PRM_Template::PRM_EXPORT_MIN, 1, &iterationsName, &iterationsDefault, 0),
     PRM_Template()
 };
 
@@ -187,29 +194,6 @@ SOP_Paani::cookMySop(OP_Context &context)
         part->appendParticle(ptoff);
     }
     
-//    std::vector<Particle> particles = scene->particleSystem->getAllParticles();
-//    for (std::vector<Particle>::iterator it=particles.begin(); it < particles.end(); it++)
-//    {
-//        // Check to see if the user has interrupted us...
-//        if (boss.wasInterrupted())
-//            break;
-//        
-//        GU_PrimSphereParms sphereparms;
-//        sphereparms.gdp		= gdp;		// geo detail to append to
-//        sphereparms.xform.scale(0.5, 0.5, 0.5);	// set the radii
-//
-//        // Build a sphere instead of this poly
-//        Particle particle = *it;
-//        glm::vec3 newPos = particle.getPosition();
-//        sphereparms.xform.translate(newPos[0],newPos[1],newPos[2]);
-//        
-//        GEO_Primitive *sphere;
-//        sphere = GU_PrimSphere::build(sphereparms, GEO_PRIMSPHERE);
-//
-//        
-////        GA_Offset ptoff = poly->getPointOffset(i);
-////        gdp->setPos3(ptoff, pos);
-//    }
 
     // Highlight the star which we have just generated.  This routine
     // call clears any currently highlighted geometry, and then it

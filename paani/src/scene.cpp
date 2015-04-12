@@ -74,7 +74,7 @@ Scene::Scene()
 }
 
 void Scene::init(){
-    glm::vec3 position, velocity = glm::vec3(0,0,0);
+    glm::vec3 position, velocity = glm::vec3(utilityCore::randomFloat(),0,0);
 
     float smoothingRad = 1.0f;//particleSystem->getSmoothingRadius() * 1.f;
     int damnDim = static_cast <int> (std::cbrt(numberOfParticles)),
@@ -92,14 +92,12 @@ void Scene::init(){
         {
             for(k=0; k<damnDim; k++)
             {
-//                position = (glm::vec3((i + j*0.1)*smoothingRad, j*smoothingRad, k*smoothingRad) - glm::vec3(float(damnDim) * smoothingRad/2.0f)) * 0.5f;
-                position = (glm::vec3((i)*smoothingRad, j*smoothingRad, k*smoothingRad) - glm::vec3(float(damnDim) * smoothingRad/2.0f));
+                position = (glm::vec3((i)*smoothingRad, j*smoothingRad, k*smoothingRad) - glm::vec3(float(damnDim) * smoothingRad/2.0f))*0.9f;
 //                position.z = 0.0f;
                 particleSystem->addParticle(Particle(position, velocity));
             }
         }
     }
-    
     particleSystem->setForces(gravity);
     particleSystem->setUpperBounds(cube->getCenter() + cube->getHalfDimensions());
     particleSystem->setLowerBounds(cube->getCenter() - cube->getHalfDimensions());
