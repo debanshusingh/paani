@@ -62,6 +62,7 @@ dependencies: \
   /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/./core/func_noise.hpp \
   /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/core/func_noise.inl \
   /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/gtc/matrix_transform.hpp \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/gtc/../glm.hpp \
   /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/gtc/matrix_transform.inl \
   /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/gtc/matrix_inverse.hpp \
   /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/gtc/matrix_inverse.inl

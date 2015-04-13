@@ -57,20 +57,20 @@ Scene::Scene()
 {
     //need to add particles
     // create box
+    gravity = glm::vec3(0.0,-10.0,0.0);
+
     cube = new Cube();
     cube->setCenter(glm::vec3(0,0,0));
+    cube->setDimension(glm::vec3(40, 40, 40));
     
-    cube->setDimension(glm::vec3(30, 30, 30));
-    
-    cube->setCellSize(2.0f);       //depends on cube dimensions and particle radius
     
     //number of particles should be a cube (1,8,27...)
     numberOfParticles = 10;
     numberOfParticles *= (numberOfParticles*numberOfParticles);
     
-    gravity = glm::vec3(0.0,-10.0,0.0);
     particleSystem = new ParticleSystem();
-    
+    cube->setCellSize(particleSystem->getSmoothingRadius());       //depends on cube dimensions and particle radius
+
 }
 
 void Scene::init(){

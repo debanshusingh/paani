@@ -305,7 +305,7 @@ void ParticleSystem::update()
         Particle & currParticle = particles[i];
 
         currParticle.setVelocity((currParticle.getPredictedPosition() - currParticle.getPosition()) / timeStep);
-        viscosity(i);
+//        viscosity(i);
         currParticle.setPosition(currParticle.getPredictedPosition());
     }
 }
