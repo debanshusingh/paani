@@ -58,17 +58,16 @@ Scene::Scene()
     //need to add particles
     // create box
     gravity = glm::vec3(0.0,-10.0,0.0);
-
-    cube = new Cube();
-    cube->setCenter(glm::vec3(0,0,0));
-    cube->setDimension(glm::vec3(40, 40, 40));
-    
     
     //number of particles should be a cube (1,8,27...)
     numberOfParticles = 10;
     numberOfParticles *= (numberOfParticles*numberOfParticles);
     
     particleSystem = new ParticleSystem();
+    
+    cube = new Cube();
+    cube->setCenter(glm::vec3(0,0,0));
+    cube->setDimension(glm::vec3(15)*particleSystem->getSmoothingRadius());
     cube->setCellSize(particleSystem->getSmoothingRadius());       //depends on cube dimensions and particle radius
 
 }
@@ -81,9 +80,8 @@ void Scene::init(){
 //    int damnDim = static_cast <int> (std::sqrt(numberOfParticles)),
         i,j,k=0;
     
-    //set up damn break
+    //set up dam break
 
-    //TODO
     //  start with the highest y, and keep filling squares
     
     for(i=0; i<damnDim; i++)
@@ -98,6 +96,7 @@ void Scene::init(){
             }
         }
     }
+    
     particleSystem->setForces(gravity);
     particleSystem->setUpperBounds(cube->getCenter() + cube->getHalfDimensions());
     particleSystem->setLowerBounds(cube->getCenter() - cube->getHalfDimensions());

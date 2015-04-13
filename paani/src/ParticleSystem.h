@@ -38,7 +38,7 @@ private:
     glm::vec3 upperBounds;
     
     float cellSize;
-    std::map<int, std::vector<int> > hashGrid;
+    std::map<int, std::vector<int>> hashGrid;
     glm::ivec3 gridDim;
     
 public:
@@ -85,7 +85,6 @@ public:
     
     glm::vec3 findDeltaPosition(int index);
     void findLambda(int index);
-//    glm::vec3 sCorrection(int index);
     
     //collision detection and resolution
     void particleCollision(int index);
