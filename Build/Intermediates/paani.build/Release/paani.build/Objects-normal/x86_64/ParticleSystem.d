@@ -65,6 +65,32 @@ dependencies: \
   /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/src/utilities.h \
   /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/gtc/matrix_transform.hpp \
   /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/gtc/matrix_transform.inl \
+  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/src/Mesh.h \
+  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/scene.h \
+  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/types.h \
+  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/defs.h \
+  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/vector3.h \
+  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/./Compiler/pushpack1.h \
+  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/./Compiler/poppack1.h \
+  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/vector2.h \
+  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/color4.h \
+  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/matrix3x3.h \
+  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/matrix4x4.h \
+  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/quaternion.h \
+  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/vector2.inl \
+  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/vector3.inl \
+  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/color4.inl \
+  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/quaternion.inl \
+  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/matrix3x3.inl \
+  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/matrix4x4.inl \
+  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/texture.h \
+  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/mesh.h \
+  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/light.h \
+  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/camera.h \
+  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/material.h \
+  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/material.inl \
+  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/anim.h \
+  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/metadata.h \
   /Library/Frameworks/Houdini.framework/Versions/14.0.258/Resources/toolkit/include/tbb/tbb.h \
   /Library/Frameworks/Houdini.framework/Versions/14.0.258/Resources/toolkit/include/tbb/aligned_space.h \
   /Library/Frameworks/Houdini.framework/Versions/14.0.258/Resources/toolkit/include/tbb/tbb_stddef.h \

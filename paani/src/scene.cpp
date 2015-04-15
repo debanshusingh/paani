@@ -8,6 +8,7 @@
 
 #include "scene.h"
 #include <iostream>
+#include "Mesh.h"
 
 using namespace std;
 
@@ -60,12 +61,12 @@ Scene::Scene()
     cube = new Cube();
     cube->setCenter(glm::vec3(0,0,0));
     
-    cube->setDimension(glm::vec3(30, 30, 30));
+    cube->setDimension(glm::vec3(50));//, 30, 30));
     
     cube->setCellSize(2.0f);       //depends on cube dimensions and particle radius
     
     //number of particles should be a cube (1,8,27...)
-    numberOfParticles = 10;
+    numberOfParticles = 5;
     numberOfParticles *= (numberOfParticles*numberOfParticles);
     
     gravity = glm::vec3(0.0,-10.0,0.0);
@@ -100,10 +101,15 @@ void Scene::init(){
         }
     }
     
-    particleSystem->setForces(gravity);
     particleSystem->setUpperBounds(cube->getCenter() + cube->getHalfDimensions());
     particleSystem->setLowerBounds(cube->getCenter() - cube->getHalfDimensions());
     particleSystem->setCellSize(cube->getCellSize());
+    particleSystem->setForces(gravity);
+    
+    std::string objPath = "/Users/sanchitgarg/Desktop/cggt/spring 2015/advanced cg/cis660pbf/code/paani/paani/objs/GlassBowl.obj";
+    mesh.LoadMesh(objPath);
+    
+    particleSystem->loadContainer(mesh);
 }
 
 void Scene::update(){

@@ -51,13 +51,20 @@ newSopOperator(OP_OperatorTable *table)
 }
 
 static PRM_Name		particleCountName("particleCount", "ParticleCount");
-static PRM_Default	particleCountDefault(500);
+static PRM_Default	particleCountDefault(27000);
+
+static PRM_Name		sphSmoothingRadiusName("sphSmoothingRadius", "SphSmoothingRadius");
+static PRM_Default	sphSmoothingRadiusDefault(1.5);
+
+static PRM_Name		iterationsName("timestep", "Timestep");
+static PRM_Default	iterationsDefault(10);
 
 PRM_Template
 SOP_Paani::myTemplateList[] = {
     PRM_Template(PRM_INT,	PRM_Template::PRM_EXPORT_MIN, 1, &particleCountName, &particleCountDefault, 0),
-//    PRM_Template(PRM_STRING,	PRM_Template::PRM_EXPORT_MIN, 1, &grammar, &grammarDefault, 0),
-//        PRM_Template(PRM_FLT,	PRM_Template::PRM_EXPORT_MIN, 1, &stepName, &stepDefault, 0),
+    //    PRM_Template(PRM_STRING,	PRM_Template::PRM_EXPORT_MIN, 1, &grammar, &grammarDefault, 0),
+    PRM_Template(PRM_FLT,	PRM_Template::PRM_EXPORT_MIN, 1, &sphSmoothingRadiusName, &sphSmoothingRadiusDefault, 0),
+    PRM_Template(PRM_FLT,	PRM_Template::PRM_EXPORT_MIN, 1, &iterationsName, &iterationsDefault, 0),
     PRM_Template()
 };
 
@@ -114,10 +121,10 @@ SOP_Paani::SOP_Paani(OP_Network *net, const char *name, OP_Operator *op)
     // star and only bump relevant data IDs, (P and the primitive list),
     // depending on what parameters changed.
     mySopFlags.setManagesDataIDs(true);
-
+    
     scene = new Scene();
     scene->init();
-
+    
     myCurrPoint = -1; // To prevent garbage values from being returned
 }
 
@@ -130,13 +137,13 @@ SOP_Paani::cookMySop(OP_Context &context)
     fpreal now = context.getTime();
     
     // Since we don't have inputs, we don't need to lock them.
-//    int particleCount = COUNT(now);
-
-//    scene->numberOfParticles = particleCount;
+    //    int particleCount = COUNT(now);
+    
+    //    scene->numberOfParticles = particleCount;
     scene->update();
     // now the updated particles should be in vector<Particle> scene->getAllParticles()
     
-//    int divisions  = DIVISIONS(now)*2;  // We need twice our divisions of points
+    //    int divisions  = DIVISIONS(now)*2;  // We need twice our divisions of points
     
     // Check to see that there hasn't been a critical error in cooking the SOP.
     if (error() >= UT_ERROR_ABORT)
@@ -145,14 +152,14 @@ SOP_Paani::cookMySop(OP_Context &context)
         return error();
     }
     
-//    if (divisions < 4)
-//    {
-        // With the range restriction we have on the divisions, this
-        // is actually impossible, but it shows how to add an error
-        // message or warning to the SOP.
-//        addWarning(SOP_MESSAGE, "Invalid divisions");
-//        divisions = 4;
-//    }
+    //    if (divisions < 4)
+    //    {
+    // With the range restriction we have on the divisions, this
+    // is actually impossible, but it shows how to add an error
+    // message or warning to the SOP.
+    //        addWarning(SOP_MESSAGE, "Invalid divisions");
+    //        divisions = 4;
+    //    }
     
     // In addition to destroying everything except the empty P
     // and topology attributes, this bumps the data IDs for
@@ -176,41 +183,41 @@ SOP_Paani::cookMySop(OP_Context &context)
         // Check to see if the user has interrupted us...
         if (boss.wasInterrupted())
             break;
-
+        
         // Build a sphere instead of this poly
         Particle particle = *it;
         glm::vec3 newPos = particle.getPosition();
-    
+        
         GA_Offset ptoff = gdp->appendPointOffset();
         gdp->setPos3(ptoff, newPos[0],newPos[1],newPos[2]);
         
         part->appendParticle(ptoff);
     }
     
-//    std::vector<Particle> particles = scene->particleSystem->getAllParticles();
-//    for (std::vector<Particle>::iterator it=particles.begin(); it < particles.end(); it++)
-//    {
-//        // Check to see if the user has interrupted us...
-//        if (boss.wasInterrupted())
-//            break;
-//        
-//        GU_PrimSphereParms sphereparms;
-//        sphereparms.gdp		= gdp;		// geo detail to append to
-//        sphereparms.xform.scale(0.5, 0.5, 0.5);	// set the radii
-//
-//        // Build a sphere instead of this poly
-//        Particle particle = *it;
-//        glm::vec3 newPos = particle.getPosition();
-//        sphereparms.xform.translate(newPos[0],newPos[1],newPos[2]);
-//        
-//        GEO_Primitive *sphere;
-//        sphere = GU_PrimSphere::build(sphereparms, GEO_PRIMSPHERE);
-//
-//        
-////        GA_Offset ptoff = poly->getPointOffset(i);
-////        gdp->setPos3(ptoff, pos);
-//    }
-
+    //    std::vector<Particle> particles = scene->particleSystem->getAllParticles();
+    //    for (std::vector<Particle>::iterator it=particles.begin(); it < particles.end(); it++)
+    //    {
+    //        // Check to see if the user has interrupted us...
+    //        if (boss.wasInterrupted())
+    //            break;
+    //
+    //        GU_PrimSphereParms sphereparms;
+    //        sphereparms.gdp		= gdp;		// geo detail to append to
+    //        sphereparms.xform.scale(0.5, 0.5, 0.5);	// set the radii
+    //
+    //        // Build a sphere instead of this poly
+    //        Particle particle = *it;
+    //        glm::vec3 newPos = particle.getPosition();
+    //        sphereparms.xform.translate(newPos[0],newPos[1],newPos[2]);
+    //
+    //        GEO_Primitive *sphere;
+    //        sphere = GU_PrimSphere::build(sphereparms, GEO_PRIMSPHERE);
+    //
+    //
+    ////        GA_Offset ptoff = poly->getPointOffset(i);
+    ////        gdp->setPos3(ptoff, pos);
+    //    }
+    
     // Highlight the star which we have just generated.  This routine
     // call clears any currently highlighted geometry, and then it
     // highlights every primitive for this SOP.

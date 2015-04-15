@@ -204,7 +204,6 @@ bool ParticleSystem::isValidCell(glm::ivec3 cellForCheck)
     return false;
 }
 
-
 float ParticleSystem::getDensity(int index)
 {
     float density = 0;
@@ -305,7 +304,7 @@ void ParticleSystem::update()
         Particle & currParticle = particles[i];
 
         currParticle.setVelocity((currParticle.getPredictedPosition() - currParticle.getPosition()) / timeStep);
-        viscosity(i);
+//        viscosity(i);
         currParticle.setPosition(currParticle.getPredictedPosition());
     }
 }
@@ -394,6 +393,7 @@ void ParticleSystem::viscosity(int index)
 
 void ParticleSystem::particleCollision(int index){
     particleBoxCollision(index);
+    particleContainerCollision(index);
 //    particleParticleCollision(index);
 }
 
@@ -437,6 +437,152 @@ void ParticleSystem::particleParticleCollision(int index)
             
             particles[index].setVelocity(particleVelocity - vCollision);
             particles[neighbors[i]].setVelocity(neighborVelocity + vCollision);
+        }
+    }
+}
+
+void ParticleSystem::loadContainer(Mesh& mesh)
+{
+    container.numIndices = mesh.getNumVertices(0);
+    container.triangles = mesh.getTriangles(0);
+    container.normals = mesh.getNormals(0);
+    
+    //TODO --------------------------------------
+    //  scale triangles as per obj size
+    
+    glm::vec3 min(0.0), max(0.0);
+    for(int i = 0; i<container.numIndices; ++i)
+    {
+        container.triangles[i] *= 20.0f;
+        for(int j=0; j<3; j++)
+        {
+            if(container.triangles[i][j] < min[j])
+                min[j] = container.triangles[i][j];
+            if(container.triangles[i][j] > max[j])
+                max[j] = container.triangles[i][j];
+        }
+    }
+    
+    container.boundingCenter = (min + max)/2.0f;
+    container.boundingRadius = glm::distance(min, container.boundingCenter);
+    
+    createContainerGrid();
+}
+
+void ParticleSystem::createContainerGrid()
+{
+    int size = gridDim.x * gridDim.y * gridDim.z;
+    
+    for(int i = 0;i<size; ++i)
+    {
+        containerBool.push_back(false);
+    }
+    
+    //voxel finding algo
+    //  1. Determine the range of x, y, z the triangle spans.
+    //  2. Mark all voxels with that range as true
+    
+    glm::vec3 v1, v2, v3;         //triangle vertices
+    glm::vec3 min(0), max(0);     //saves the min and max x,y,z (triangle span)
+    
+    for(int i=0; i<container.triangles.size(); i+=3)
+    {
+        v1 = container.triangles.at(i) + upperBounds;
+        v2 = container.triangles.at(i+1) + upperBounds;
+        v3 = container.triangles.at(i+2) + upperBounds;
+        
+        min = v1;
+        max = v1;
+        
+        for(int j = 0; j<3; ++j)
+        {
+            if(min[j] > v2[j])
+                min[j] = v2[j];
+            if(min[j] > v3[j])
+                min[j] = v3[j];
+
+            if(max[j] < v2[j])
+                max[j] = v2[j];
+            if(max[j] < v3[j])
+                max[j] = v3[j];
+        }
+        
+        glm::ivec3 rangeMin, rangeMax;
+        
+        rangeMin = min/cellSize;
+        rangeMax = max/cellSize;
+        rangeMax += glm::ivec3(1,1,1);
+        
+        for(int x = rangeMin.x; x<rangeMax.x; ++x)
+        {
+            for(int y = rangeMin.y; y<rangeMax.y; ++y)
+            {
+                for(int z = rangeMin.z; z<rangeMax.z; ++z)
+                {
+                    if(isValidCell(glm::ivec3(x,y,z)))
+                    {
+                        containerBool.at(x + gridDim.x * (y + gridDim.y * z)) = true;
+                        containerGrid[x + gridDim.x * (y + gridDim.y * z)].push_back(i);
+                    }
+                }
+            }
+        }
+    }
+//    std::cout<<"gere";
+}
+
+void ParticleSystem::particleContainerCollision(int index)
+{
+    Particle & currParticle = particles[index];
+    glm::vec3 particlePredictedPos = currParticle.getPredictedPosition();
+    glm::vec3 particlePos = currParticle.getPosition();
+    
+    glm::vec3 v0, v1, v2, n, intersectionPoint;
+    glm::vec3 x1, e1, e2;
+    
+    float da, db;
+    int triIndex;
+    
+    glm::ivec3 hashPosition = currParticle.getHashPosition();
+    int gridPosition = hashPosition.x + gridDim.x * (hashPosition.y + gridDim.y * hashPosition.z);
+    float scale = 1.02;
+    
+    if(containerBool.at(gridPosition))
+    {
+        for(int i = 0; i<containerGrid.at(gridPosition).size(); ++i)
+        {
+            // triangle-particle collision
+            triIndex = containerGrid.at(gridPosition).at(i);
+            v0 = container.triangles.at(triIndex)*scale;
+            v1 = container.triangles.at(triIndex + 1)*scale;
+            v2 = container.triangles.at(triIndex + 2)*scale;
+            n = container.normals.at(triIndex/3);
+            
+            da = glm::dot((particlePos-v0), n);
+            db = glm::dot((particlePredictedPos-v0), n);
+            
+            if(da*db < ZERO_ABSORPTION_EPSILON)
+            {
+                // collision
+                intersectionPoint = (da*particlePredictedPos - db*particlePos) / (da - db);
+                
+                //reduce to 2D, remove z
+                x1 = glm::vec3(intersectionPoint.x - v0.x, intersectionPoint.y - v0.y, 0);
+                e1 = glm::vec3(v1.x-v0.x, v1.y-v0.y, 0);
+                e2 = glm::vec3(v2.x-v0.x, v2.y-v0.y, 0);
+                
+                da = glm::length(glm::cross(x1, e2)) / glm::length(glm::cross(e1, e2));
+                db = glm::length(glm::cross(x1, e1)) / glm::length(glm::cross(e1, e2));
+                
+                if(! (da < ZERO_ABSORPTION_EPSILON || db < ZERO_ABSORPTION_EPSILON || da+db > 1-ZERO_ABSORPTION_EPSILON) )
+                {
+                    // handle collision
+                    
+//                    currParticle.setPredictedPosition(particlePos);
+                    currParticle.setVelocity(glm::reflect(currParticle.getVelocity(), n) * 0.7f);
+                    currParticle.setPredictedPosition(particlePos + timeStep * currParticle.getVelocity());
+                }
+            }
         }
     }
 }

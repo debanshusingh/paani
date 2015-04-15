@@ -13,8 +13,18 @@
 #include <utility>
 #include "utilities.h"
 #include <map>
+#include "Mesh.h"
 
 //This class stores the list of particles and handles their interactions
+
+struct Container
+{
+    int numIndices;
+    std::vector<glm::vec3> triangles;
+    std::vector<glm::vec3> normals;
+    glm::vec3 boundingCenter;
+    float boundingRadius;
+};
 
 class ParticleSystem
 {
@@ -25,8 +35,8 @@ private:
     const float poly6Const = 315.0 / (64 * PI);
     const float spikyConst = 45.0 / (PI);
     const float restDensity = 1000.0; //1000kg/m3
-    const float smoothingRadius = 2.0f;
-    const int solverIterations = 1;
+    const float smoothingRadius = 1.5f;
+    const int solverIterations = 4;
     const float relaxation = 0.01f;
     const float timeStep = 0.016f;
     float s_6 = smoothingRadius*smoothingRadius*smoothingRadius*
@@ -40,6 +50,15 @@ private:
     float cellSize;
     std::map<int, std::vector<int> > hashGrid;
     glm::ivec3 gridDim;
+    
+    struct Container container;
+    
+    //This will save the list of triangle indices that are in the particular grid.
+    // first int maps from the 3D grid location to 1D data.
+    std::map<int, std::vector<int> > containerGrid;
+    
+    //this saves whether the voxel has any triangle or not
+    std::vector<bool> containerBool;
     
 public:
 
@@ -55,6 +74,9 @@ public:
     glm::vec3 getLowerBounds();
     glm::vec3 getUpperBounds();
     float getCellSize();
+    
+    void loadContainer(Mesh& mesh);
+    void createContainerGrid();
     
     //setter
     void setForces(glm::vec3 f);
@@ -91,6 +113,7 @@ public:
     void particleCollision(int index);
     void particleParticleCollision(int index);
     void particleBoxCollision(int index);
+    void particleContainerCollision(int index);
     
     void initialiseHashPositions();         //function that initialises particles hash positions
    

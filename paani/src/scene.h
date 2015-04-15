@@ -55,6 +55,7 @@ public:
     int numberOfParticles;
     Cube* cube;
     ParticleSystem* particleSystem;
+    Mesh mesh;
 };
 
 #endif /* defined(__paani__scene__) */
