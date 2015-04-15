@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1281BD971ADE352100A51AE3 /* libassimp.3.1.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1281BD961ADE352100A51AE3 /* libassimp.3.1.1.dylib */; };
+		1281BD9B1ADE359600A51AE3 /* libglfw3.3.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1281BD9A1ADE359600A51AE3 /* libglfw3.3.1.dylib */; };
 		12CB7C431AA272990095666D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 12CB7C421AA272990095666D /* main.cpp */; };
 		12CB7C461AA275E90095666D /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12CB7C451AA275E90095666D /* OpenGL.framework */; };
 		12CB7C481AA276870095666D /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12CB7C471AA276870095666D /* IOKit.framework */; };
@@ -14,13 +16,11 @@
 		12F5ECA01AA28E960055DEE6 /* libGLEW.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 12F5EC9F1AA28E960055DEE6 /* libGLEW.a */; };
 		12F5ECA31AA2900C0055DEE6 /* utilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 12F5ECA11AA2900C0055DEE6 /* utilities.cpp */; };
 		8936A2861AB2244400B9C75D /* scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8936A2841AB2244400B9C75D /* scene.cpp */; };
-		895B962F1ADE271700C3723B /* libglfw3.3.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 895B962E1ADE271700C3723B /* libglfw3.3.1.dylib */; };
 		896ABBFB1AA2985C001480C1 /* Particle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 896ABBF71AA2985C001480C1 /* Particle.cpp */; };
 		896ABBFC1AA2985C001480C1 /* ParticleSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 896ABBF91AA2985C001480C1 /* ParticleSystem.cpp */; };
 		897E7F531AD4D91C0056699C /* libtbb.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 897E7F511AD4D91C0056699C /* libtbb.dylib */; };
 		897E7F541AD4D91C0056699C /* libtbbmalloc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 897E7F521AD4D91C0056699C /* libtbbmalloc.dylib */; };
 		89A663E11AB5432600B11963 /* imageloader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 89A663DF1AB5432600B11963 /* imageloader.cpp */; };
-		89FFCC521ADE2F4A009CD205 /* libassimp.3.1.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 89FFCC511ADE2F4A009CD205 /* libassimp.3.1.1.dylib */; };
 		89FFCC551ADE2F74009CD205 /* Mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 89FFCC531ADE2F74009CD205 /* Mesh.cpp */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +41,8 @@
 		125CDE8F1ABCECC9000DE80C /* SOP_Paani.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SOP_Paani.c; sourceTree = "<group>"; };
 		12730EA31ADB355800F13D4C /* frag.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = frag.glsl; path = shaders/frag.glsl; sourceTree = "<group>"; };
 		12730EA41ADB355800F13D4C /* vert.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vert.glsl; path = shaders/vert.glsl; sourceTree = "<group>"; };
+		1281BD961ADE352100A51AE3 /* libassimp.3.1.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libassimp.3.1.1.dylib; path = "paani/thirdparty/assimp-3.1.1/lib/libassimp.3.1.1.dylib"; sourceTree = "<group>"; };
+		1281BD9A1ADE359600A51AE3 /* libglfw3.3.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw3.3.1.dylib; path = ../../../../../../../usr/local/Cellar/glfw3/3.1/lib/libglfw3.3.1.dylib; sourceTree = "<group>"; };
 		12CB7C421AA272990095666D /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		12CB7C451AA275E90095666D /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		12CB7C471AA276870095666D /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
@@ -51,7 +53,6 @@
 		12F5ECA21AA2900C0055DEE6 /* utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utilities.h; sourceTree = "<group>"; };
 		8936A2841AB2244400B9C75D /* scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = scene.cpp; sourceTree = "<group>"; };
 		8936A2851AB2244400B9C75D /* scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scene.h; sourceTree = "<group>"; };
-		895B962E1ADE271700C3723B /* libglfw3.3.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw3.3.1.dylib; path = ../../../../../../../../../usr/local/Cellar/glfw3/3.1/lib/libglfw3.3.1.dylib; sourceTree = "<group>"; };
 		896ABBF71AA2985C001480C1 /* Particle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Particle.cpp; sourceTree = "<group>"; };
 		896ABBF81AA2985C001480C1 /* Particle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Particle.h; sourceTree = "<group>"; };
 		896ABBF91AA2985C001480C1 /* ParticleSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParticleSystem.cpp; sourceTree = "<group>"; };
@@ -60,7 +61,6 @@
 		897E7F521AD4D91C0056699C /* libtbbmalloc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libtbbmalloc.dylib; path = "../../../../../../../../../usr/local/Cellar/tbb/4.3-20141023/lib/libtbbmalloc.dylib"; sourceTree = "<group>"; };
 		89A663DF1AB5432600B11963 /* imageloader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imageloader.cpp; sourceTree = "<group>"; };
 		89A663E01AB5432600B11963 /* imageloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imageloader.h; sourceTree = "<group>"; };
-		89FFCC511ADE2F4A009CD205 /* libassimp.3.1.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libassimp.3.1.1.dylib; path = "paani/thirdparty/assimp-3.1.1/lib/libassimp.3.1.1.dylib"; sourceTree = "<group>"; };
 		89FFCC531ADE2F74009CD205 /* Mesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Mesh.cpp; sourceTree = "<group>"; };
 		89FFCC541ADE2F74009CD205 /* Mesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mesh.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -70,8 +70,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89FFCC521ADE2F4A009CD205 /* libassimp.3.1.1.dylib in Frameworks */,
-				895B962F1ADE271700C3723B /* libglfw3.3.1.dylib in Frameworks */,
+				1281BD9B1ADE359600A51AE3 /* libglfw3.3.1.dylib in Frameworks */,
+				1281BD971ADE352100A51AE3 /* libassimp.3.1.1.dylib in Frameworks */,
 				897E7F531AD4D91C0056699C /* libtbb.dylib in Frameworks */,
 				897E7F541AD4D91C0056699C /* libtbbmalloc.dylib in Frameworks */,
 				12F5ECA01AA28E960055DEE6 /* libGLEW.a in Frameworks */,
@@ -118,8 +118,8 @@
 		12E9289A1AA26FF600D11B5B = {
 			isa = PBXGroup;
 			children = (
-				89FFCC511ADE2F4A009CD205 /* libassimp.3.1.1.dylib */,
-				895B962E1ADE271700C3723B /* libglfw3.3.1.dylib */,
+				1281BD9A1ADE359600A51AE3 /* libglfw3.3.1.dylib */,
+				1281BD961ADE352100A51AE3 /* libassimp.3.1.1.dylib */,
 				897E7F511AD4D91C0056699C /* libtbb.dylib */,
 				897E7F521AD4D91C0056699C /* libtbbmalloc.dylib */,
 				12F5EC9F1AA28E960055DEE6 /* libGLEW.a */,
@@ -345,7 +345,6 @@
 					"/usr/local/Cellar/tbb/4.3-20141023/lib",
 					/usr/local/Cellar/glfw3/3.1/lib,
 					"$(PROJECT_DIR)/paani/thirdparty/assimp-3.1.1/lib/",
-					"$(PROJECT_DIR)/paani/thirdparty/assimp-3.1.1/lib",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -369,7 +368,6 @@
 					"/usr/local/Cellar/tbb/4.3-20141023/lib",
 					/usr/local/Cellar/glfw3/3.1/lib,
 					"$(PROJECT_DIR)/paani/thirdparty/assimp-3.1.1/lib/",
-					"$(PROJECT_DIR)/paani/thirdparty/assimp-3.1.1/lib",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
