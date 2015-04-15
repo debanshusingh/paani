@@ -37,11 +37,9 @@ private:
     const float restDensity = 1000.0; //1000kg/m3
     const float smoothingRadius = 1.5f;
     const int solverIterations = 4;
-<<<<<<< HEAD
-    const float relaxation = 0.01f;
-=======
+
     const float relaxation = 0.1f;
->>>>>>> 2afce700b636d1877a1cdaa1559c685c8182d31f
+
     const float timeStep = 0.016f;
     float s_6 = smoothingRadius*smoothingRadius*smoothingRadius*
                 smoothingRadius*smoothingRadius*smoothingRadius;

@@ -20,6 +20,8 @@
 		897E7F531AD4D91C0056699C /* libtbb.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 897E7F511AD4D91C0056699C /* libtbb.dylib */; };
 		897E7F541AD4D91C0056699C /* libtbbmalloc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 897E7F521AD4D91C0056699C /* libtbbmalloc.dylib */; };
 		89A663E11AB5432600B11963 /* imageloader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 89A663DF1AB5432600B11963 /* imageloader.cpp */; };
+		89FFCC521ADE2F4A009CD205 /* libassimp.3.1.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 89FFCC511ADE2F4A009CD205 /* libassimp.3.1.1.dylib */; };
+		89FFCC551ADE2F74009CD205 /* Mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 89FFCC531ADE2F74009CD205 /* Mesh.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -58,6 +60,9 @@
 		897E7F521AD4D91C0056699C /* libtbbmalloc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libtbbmalloc.dylib; path = "../../../../../../../../../usr/local/Cellar/tbb/4.3-20141023/lib/libtbbmalloc.dylib"; sourceTree = "<group>"; };
 		89A663DF1AB5432600B11963 /* imageloader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imageloader.cpp; sourceTree = "<group>"; };
 		89A663E01AB5432600B11963 /* imageloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imageloader.h; sourceTree = "<group>"; };
+		89FFCC511ADE2F4A009CD205 /* libassimp.3.1.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libassimp.3.1.1.dylib; path = "paani/thirdparty/assimp-3.1.1/lib/libassimp.3.1.1.dylib"; sourceTree = "<group>"; };
+		89FFCC531ADE2F74009CD205 /* Mesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Mesh.cpp; sourceTree = "<group>"; };
+		89FFCC541ADE2F74009CD205 /* Mesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mesh.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89FFCC521ADE2F4A009CD205 /* libassimp.3.1.1.dylib in Frameworks */,
 				895B962F1ADE271700C3723B /* libglfw3.3.1.dylib in Frameworks */,
 				897E7F531AD4D91C0056699C /* libtbb.dylib in Frameworks */,
 				897E7F541AD4D91C0056699C /* libtbbmalloc.dylib in Frameworks */,
@@ -90,6 +96,8 @@
 		12CB7C411AA272990095666D /* src */ = {
 			isa = PBXGroup;
 			children = (
+				89FFCC531ADE2F74009CD205 /* Mesh.cpp */,
+				89FFCC541ADE2F74009CD205 /* Mesh.h */,
 				12CB7C421AA272990095666D /* main.cpp */,
 				8936A2841AB2244400B9C75D /* scene.cpp */,
 				8936A2851AB2244400B9C75D /* scene.h */,
@@ -110,6 +118,7 @@
 		12E9289A1AA26FF600D11B5B = {
 			isa = PBXGroup;
 			children = (
+				89FFCC511ADE2F4A009CD205 /* libassimp.3.1.1.dylib */,
 				895B962E1ADE271700C3723B /* libglfw3.3.1.dylib */,
 				897E7F511AD4D91C0056699C /* libtbb.dylib */,
 				897E7F521AD4D91C0056699C /* libtbbmalloc.dylib */,
@@ -224,6 +233,7 @@
 				8936A2861AB2244400B9C75D /* scene.cpp in Sources */,
 				896ABBFC1AA2985C001480C1 /* ParticleSystem.cpp in Sources */,
 				89A663E11AB5432600B11963 /* imageloader.cpp in Sources */,
+				89FFCC551ADE2F74009CD205 /* Mesh.cpp in Sources */,
 				12F5ECA31AA2900C0055DEE6 /* utilities.cpp in Sources */,
 				896ABBFB1AA2985C001480C1 /* Particle.cpp in Sources */,
 				12CB7C431AA272990095666D /* main.cpp in Sources */,
@@ -327,12 +337,15 @@
 					"$(PROJECT_DIR)/paani/thirdparty/osx/glm",
 					"$(PROJECT_DIR)/paani/thirdparty/osx/glew/include",
 					"$(PROJECT_DIR)/paani/thirdparty/osx/glfw/include",
+					"$(PROJECT_DIR)/paani/thirdparty/assimp-3.1.1/include",
 					/usr/local/include,
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/paani/thirdparty/osx/glew/lib",
 					"/usr/local/Cellar/tbb/4.3-20141023/lib",
 					/usr/local/Cellar/glfw3/3.1/lib,
+					"$(PROJECT_DIR)/paani/thirdparty/assimp-3.1.1/lib/",
+					"$(PROJECT_DIR)/paani/thirdparty/assimp-3.1.1/lib",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -348,12 +361,15 @@
 					"$(PROJECT_DIR)/paani/thirdparty/osx/glm",
 					"$(PROJECT_DIR)/paani/thirdparty/osx/glew/include",
 					"$(PROJECT_DIR)/paani/thirdparty/osx/glfw/include",
+					"$(PROJECT_DIR)/paani/thirdparty/assimp-3.1.1/include",
 					/usr/local/include,
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/paani/thirdparty/osx/glew/lib",
 					"/usr/local/Cellar/tbb/4.3-20141023/lib",
 					/usr/local/Cellar/glfw3/3.1/lib,
+					"$(PROJECT_DIR)/paani/thirdparty/assimp-3.1.1/lib/",
+					"$(PROJECT_DIR)/paani/thirdparty/assimp-3.1.1/lib",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

@@ -58,26 +58,18 @@ Scene::Scene()
 {
     //need to add particles
     // create box
-<<<<<<< HEAD
-    cube = new Cube();
-    cube->setCenter(glm::vec3(0,0,0));
-    
-    cube->setDimension(glm::vec3(50));//, 30, 30));
-    
-    cube->setCellSize(2.0f);       //depends on cube dimensions and particle radius
-=======
+
     gravity = glm::vec3(0.0,-10.0,0.0);
->>>>>>> 2afce700b636d1877a1cdaa1559c685c8182d31f
     
     //number of particles should be a cube (1,8,27...)
-    numberOfParticles = 5;
+    numberOfParticles = 10;
     numberOfParticles *= (numberOfParticles*numberOfParticles);
     
     particleSystem = new ParticleSystem();
     
     cube = new Cube();
     cube->setCenter(glm::vec3(0,0,0));
-    cube->setDimension(glm::vec3(15)*particleSystem->getSmoothingRadius());
+    cube->setDimension(glm::vec3(30)*particleSystem->getSmoothingRadius());
     cube->setCellSize(particleSystem->getSmoothingRadius());       //depends on cube dimensions and particle radius
 
 }
@@ -112,7 +104,7 @@ void Scene::init(){
     particleSystem->setCellSize(cube->getCellSize());
     particleSystem->setForces(gravity);
     
-    std::string objPath = "/Users/sanchitgarg/Desktop/cggt/spring 2015/advanced cg/cis660pbf/code/paani/paani/objs/GlassBowl.obj";
+    std::string objPath = "./paani/objs/GlassBowl.obj";
     mesh.LoadMesh(objPath);
     
     particleSystem->loadContainer(mesh);

@@ -198,34 +198,7 @@ SOP_Paani::cookMySop(OP_Context &context)
         part->appendParticle(ptoff);
     }
     
-<<<<<<< HEAD
-    //    std::vector<Particle> particles = scene->particleSystem->getAllParticles();
-    //    for (std::vector<Particle>::iterator it=particles.begin(); it < particles.end(); it++)
-    //    {
-    //        // Check to see if the user has interrupted us...
-    //        if (boss.wasInterrupted())
-    //            break;
-    //
-    //        GU_PrimSphereParms sphereparms;
-    //        sphereparms.gdp		= gdp;		// geo detail to append to
-    //        sphereparms.xform.scale(0.5, 0.5, 0.5);	// set the radii
-    //
-    //        // Build a sphere instead of this poly
-    //        Particle particle = *it;
-    //        glm::vec3 newPos = particle.getPosition();
-    //        sphereparms.xform.translate(newPos[0],newPos[1],newPos[2]);
-    //
-    //        GEO_Primitive *sphere;
-    //        sphere = GU_PrimSphere::build(sphereparms, GEO_PRIMSPHERE);
-    //
-    //
-    ////        GA_Offset ptoff = poly->getPointOffset(i);
-    ////        gdp->setPos3(ptoff, pos);
-    //    }
-    
-=======
 
->>>>>>> 2afce700b636d1877a1cdaa1559c685c8182d31f
     // Highlight the star which we have just generated.  This routine
     // call clears any currently highlighted geometry, and then it
     // highlights every primitive for this SOP.

@@ -70,11 +70,9 @@ public:
     int numberOfParticles;
     Cube* cube;
     ParticleSystem* particleSystem;
-<<<<<<< HEAD
+    
     Mesh mesh;
-=======
 
->>>>>>> 2afce700b636d1877a1cdaa1559c685c8182d31f
 };
 
 #endif /* defined(__paani__scene__) */

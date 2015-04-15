@@ -470,7 +470,7 @@ void ParticleSystem::loadContainer(Mesh& mesh)
     glm::vec3 min(0.0), max(0.0);
     for(int i = 0; i<container.numIndices; ++i)
     {
-        container.triangles[i] *= 20.0f;
+        container.triangles[i] *= 10.0f;
         for(int j=0; j<3; j++)
         {
             if(container.triangles[i][j] < min[j])
