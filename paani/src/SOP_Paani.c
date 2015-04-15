@@ -62,7 +62,11 @@ static PRM_Default	iterationsDefault(10);
 PRM_Template
 SOP_Paani::myTemplateList[] = {
     PRM_Template(PRM_INT,	PRM_Template::PRM_EXPORT_MIN, 1, &particleCountName, &particleCountDefault, 0),
+<<<<<<< HEAD
     //    PRM_Template(PRM_STRING,	PRM_Template::PRM_EXPORT_MIN, 1, &grammar, &grammarDefault, 0),
+=======
+//    PRM_Template(PRM_STRING,	PRM_Template::PRM_EXPORT_MIN, 1, &grammar, &grammarDefault, 0),
+>>>>>>> 2afce700b636d1877a1cdaa1559c685c8182d31f
     PRM_Template(PRM_FLT,	PRM_Template::PRM_EXPORT_MIN, 1, &sphSmoothingRadiusName, &sphSmoothingRadiusDefault, 0),
     PRM_Template(PRM_FLT,	PRM_Template::PRM_EXPORT_MIN, 1, &iterationsName, &iterationsDefault, 0),
     PRM_Template()
@@ -194,6 +198,7 @@ SOP_Paani::cookMySop(OP_Context &context)
         part->appendParticle(ptoff);
     }
     
+<<<<<<< HEAD
     //    std::vector<Particle> particles = scene->particleSystem->getAllParticles();
     //    for (std::vector<Particle>::iterator it=particles.begin(); it < particles.end(); it++)
     //    {
@@ -218,6 +223,9 @@ SOP_Paani::cookMySop(OP_Context &context)
     ////        gdp->setPos3(ptoff, pos);
     //    }
     
+=======
+
+>>>>>>> 2afce700b636d1877a1cdaa1559c685c8182d31f
     // Highlight the star which we have just generated.  This routine
     // call clears any currently highlighted geometry, and then it
     // highlights every primitive for this SOP.
