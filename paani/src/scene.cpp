@@ -62,22 +62,22 @@ Scene::Scene()
     gravity = glm::vec3(0.0,-10.0,0.0);
     
     //number of particles should be a cube (1,8,27...)
-    numberOfParticles = 10;
+    numberOfParticles = 20;
     numberOfParticles *= (numberOfParticles*numberOfParticles);
     
     particleSystem = new ParticleSystem();
     
     cube = new Cube();
     cube->setCenter(glm::vec3(0,0,0));
-    cube->setDimension(glm::vec3(30)*particleSystem->getSmoothingRadius());
+    cube->setDimension(glm::vec3(50)*particleSystem->getSmoothingRadius());
     cube->setCellSize(particleSystem->getSmoothingRadius());       //depends on cube dimensions and particle radius
 
 }
 
 void Scene::init(){
-    glm::vec3 position, velocity = glm::vec3(utilityCore::randomFloat(),0,0);
+    glm::vec3 position, velocity = glm::vec3(utilityCore::randomFloat(),0,utilityCore::randomFloat());
 
-    float smoothingRad = 1.0f;//particleSystem->getSmoothingRadius() * 1.f;
+    float smoothingRad = particleSystem->getSmoothingRadius() * 1.f;
     int damnDim = static_cast <int> (std::cbrt(numberOfParticles)),
 //    int damnDim = static_cast <int> (std::sqrt(numberOfParticles)),
         i,j,k=0;
@@ -92,8 +92,8 @@ void Scene::init(){
         {
             for(k=0; k<damnDim; k++)
             {
-                position = (glm::vec3((i)*smoothingRad, j*smoothingRad, k*smoothingRad) - glm::vec3(float(damnDim) * smoothingRad/2.0f))*0.9f;
-//                position.z = 0.0f;
+                position = (glm::vec3((i)*smoothingRad, j*smoothingRad, k*smoothingRad) - glm::vec3(float(damnDim) * smoothingRad/2.0f))*1.0f;
+//                position.z = 1.0f;
                 particleSystem->addParticle(Particle(position, velocity));
             }
         }
@@ -104,7 +104,7 @@ void Scene::init(){
     particleSystem->setCellSize(cube->getCellSize());
     particleSystem->setForces(gravity);
     
-    std::string objPath = "./paani/objs/GlassBowl.obj";
+    std::string objPath = "./paani/objs/sphere.obj";
     mesh.LoadMesh(objPath);
     
     particleSystem->loadContainer(mesh);

@@ -5,6 +5,13 @@
 //  Created by Debanshu on 2/28/15.
 //  Copyright (c) 2015 Debanshu. All rights reserved.
 //
+#define GLEW_STATIC
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
+
+#define GLM_FORCE_RADIANS
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 
 #include "scene.h"
 #include <fstream>
@@ -231,14 +238,7 @@ void displayParticles()
     glBindBuffer(GL_ARRAY_BUFFER, gVBO);
     
     // Put the three verticies into the VBO
-    std::vector<glm::vec3> particlePosData;
-    std::vector<Particle> particles = scene->particleSystem->getAllParticles();
-    for (std::vector<Particle>::iterator it=particles.begin(); it < particles.end(); it++)
-    {
-        Particle particle = *it;
-        glm::vec3 partPos = particle.getPosition();
-        particlePosData.push_back(partPos);
-    }
+    std::vector<glm::vec3> particlePosData = scene->particleSystem->getAllParticlesPos();
     
     glBufferData(GL_ARRAY_BUFFER, particlePosData.size()*sizeof(glm::vec3), &particlePosData[0], GL_DYNAMIC_DRAW);
     

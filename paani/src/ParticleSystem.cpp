@@ -22,6 +22,10 @@ std::vector<Particle>& ParticleSystem::getAllParticles()
     return particles;
 }
 
+std::vector<glm::vec3>& ParticleSystem::getAllParticlesPos(){
+    return particlesPos;
+}
+
 float ParticleSystem::getRestDensity()
 {
     return restDensity;
@@ -89,6 +93,7 @@ void ParticleSystem::findNeighbors(int index)
     Particle & currParticle = particles.at(index);
     
     glm::vec3 particlePredictedPos = currParticle.getPredictedPosition();
+    
     if (glm::any(glm::isnan(particlePredictedPos))) {
         std::cout<<"error";
     }
@@ -130,15 +135,15 @@ void ParticleSystem::findNeighbors(int index)
 
 void ParticleSystem::initialiseHashPositions()
 {
-    glm::ivec3 hashPosition;
-    
     hashGrid.clear();
 
+
+    
     for (int i=0; i<particles.size(); i++)
-//    parallel_for(0, particles.size(), 1, [=](int i)
+//    parallel_for<size_t>(0, particles.size(), 1, [=](int i)
     {
-        glm::vec3 temp = particles.at(i).getPredictedPosition() + upperBounds;
-        hashPosition = temp / cellSize;
+            glm::ivec3 hashPosition;
+        hashPosition = (particles.at(i).getPredictedPosition() + upperBounds) / cellSize;
         particles.at(i).setHashPosition(hashPosition);
 //        int position = hashPosition.x + gridDim.x * (hashPosition.y + gridDim.y * hashPosition.z);
         
@@ -190,7 +195,7 @@ void ParticleSystem::initialiseHashPositions()
                 hashGrid[neighborCells[j].x + gridDim.x * (neighborCells[j].y + gridDim.y * neighborCells[j].z)].push_back(i);
             }
         }
- //   });
+//    });
     }
 }
 
@@ -284,46 +289,65 @@ void ParticleSystem::update()
     applyForces(); // apply forces and predict position
     initialiseHashPositions();  //initialise hash positions to be used in neighbour search
 
-    try {
-        parallel_for<size_t>(0, particles.size()-1, 1, [=](int x){findNeighbors(x);});
-    } catch( captured_exception& ex ) {
-        std::cout << "captured_exception: " << ex.what() << std::endl;
-    } catch( std::out_of_range& ex ) {
-        std::cout << "out_of_range: " << ex.what() << std::endl;
-    }
+//    try {
+        parallel_for<size_t>(0, particles.size()-1, 1, [=](int x)
+        {
+            findNeighbors(x);
+        });
+//    } catch( captured_exception& ex ) {
+//        std::cout << "captured_exception: " << ex.what() << std::endl;
+//    } catch( std::out_of_range& ex ) {
+//        std::cout << "out_of_range: " << ex.what() << std::endl;
+//    }
 
 
-    for (int k=0; k<solverIterations; k++) {
-
-        for (int i=0; i<particles.size(); i++) {
-
+    for (int k=0; k<solverIterations; ++k)
+    {
+//        for (int i=0; i<particles.size(); ++i)
+        parallel_for<size_t>(0, particles.size(), 1, [=](int i)
+        {
             findLambda(i);
-        }
-       
-        for (int i=0; i<particles.size(); i++) {
-
+//        }
+        });
+        
+//        for (int i=0; i<particles.size(); ++i)
+        parallel_for<size_t>(0, particles.size(), 1, [=](int i)
+        {
             Particle & currParticle = particles.at(i);
             glm::vec3 deltaPi = findDeltaPosition(i);
             currParticle.setDeltaPi(deltaPi);
 //            currParticle.setPredictedPosition(currParticle.getPredictedPosition() + currParticle.getDeltaPi());
             particleCollision(i);
-
-        }
+//        }
+        });
         
-        parallel_for<size_t>(0, particles.size()-1, 1, [=](int i){
+        parallel_for<size_t>(0, particles.size(), 1, [=](int i)
+        {
             Particle & currParticle = particles.at(i);
             currParticle.setPredictedPosition(currParticle.getPredictedPosition() + currParticle.getDeltaPi());
         });
     }
 
-    parallel_for<size_t>(0, particles.size()-1, 1, [=](int i){
-        
+    parallel_for<size_t>(0, particles.size(), 1, [=](int i)
+    {
         Particle & currParticle = particles.at(i);
 
         currParticle.setVelocity((currParticle.getPredictedPosition() - currParticle.getPosition()) / timeStep);
 //        viscosity(i);
         currParticle.setPosition(currParticle.getPredictedPosition());
     });
+    
+    //opengl only
+    //comment out for houdini
+    particlesPos.clear();
+    for (std::vector<Particle>::iterator it=particles.begin(); it < particles.end(); it++)
+    {
+        Particle particle = *it;
+        glm::vec3 partPos = particle.getPosition();
+        particlesPos.push_back(partPos);
+    }
+
+    
 }
 
 void ParticleSystem::findLambda(int index){
@@ -382,7 +406,8 @@ glm::vec3 ParticleSystem::findDeltaPosition(int index)
 
 void ParticleSystem::applyForces()
 {
-    for(int i=0; i<particles.size(); i++)
+//    for(int i=0; i<particles.size(); i++)
+    parallel_for<size_t>(0, particles.size(), 1, [=](int i)
     {
         Particle & currParticle = particles.at(i);
 
@@ -390,7 +415,8 @@ void ParticleSystem::applyForces()
         glm::vec3 currPosition = currParticle.getPosition();
         glm::vec3 predictedPosition = currPosition + timeStep * currParticle.getVelocity();
         currParticle.setPredictedPosition(predictedPosition);
-    }
+//    }
+    });
 }
 
 void ParticleSystem::viscosity(int index)
@@ -398,14 +424,22 @@ void ParticleSystem::viscosity(int index)
     Particle & currParticle = particles.at(index);
     std::vector<int> neighbors = currParticle.getNeighborIndices();
     
-    glm::vec3 newVelocity = currParticle.getVelocity();
+    glm::vec3 newVelocity(0.0,0.0,0.0);
+    glm::vec3 currVelocity = currParticle.getVelocity();
+    glm::vec3 currPosition = currParticle.getPredictedPosition();
     
     for(int i=0; i<neighbors.size(); i++)
     {
-        newVelocity += (1/particles.at(neighbors[i]).getDensity()) * (particles.at(neighbors[i]).getVelocity() - currParticle.getVelocity()) * wPoly6Kernel( (currParticle.getPredictedPosition() - particles.at(neighbors.at(i)).getPredictedPosition()), smoothingRadius);
+        if(particles.at(neighbors[i]).getDensity() > EPSILON)
+        {
+            newVelocity += (1.0f/particles.at(neighbors[i]).getDensity()) * (particles.at(neighbors[i]).getVelocity() - currVelocity) * wPoly6Kernel( (currPosition - particles.at(neighbors.at(i)).getPredictedPosition()), smoothingRadius);
+        
+//          newVelocity += (particles.at(neighbors.at(i)).getVelocity() - currVelocity) * wPoly6Kernel( (currPosition - particles.at(neighbors.at(i)).getPredictedPosition()), smoothingRadius);
+        }
     }
     
-    currParticle.setVelocity(newVelocity);
+    currParticle.setVelocity(currVelocity + 0.01f * newVelocity);
+//    currParticle.setVelocity(currVelocity + 0.1f*newVelocity);
 }
 
 void ParticleSystem::particleCollision(int index){
@@ -470,7 +504,7 @@ void ParticleSystem::loadContainer(Mesh& mesh)
     glm::vec3 min(0.0), max(0.0);
     for(int i = 0; i<container.numIndices; ++i)
     {
-        container.triangles[i] *= 10.0f;
+        container.triangles[i] *= 30.0f;
         for(int j=0; j<3; j++)
         {
             if(container.triangles[i][j] < min[j])
@@ -527,14 +561,15 @@ void ParticleSystem::createContainerGrid()
         glm::ivec3 rangeMin, rangeMax;
         
         rangeMin = min/cellSize;
+        rangeMin -= glm::ivec3(1,1,1);
         rangeMax = max/cellSize;
-        rangeMax += glm::ivec3(1,1,1);
+        rangeMax += glm::ivec3(2,2,2);
         
-        for(int x = rangeMin.x; x<rangeMax.x; ++x)
+        for(int x = rangeMin.x; x<=rangeMax.x; ++x)
         {
-            for(int y = rangeMin.y; y<rangeMax.y; ++y)
+            for(int y = rangeMin.y; y<=rangeMax.y; ++y)
             {
-                for(int z = rangeMin.z; z<rangeMax.z; ++z)
+                for(int z = rangeMin.z; z<=rangeMax.z; ++z)
                 {
                     if(isValidCell(glm::ivec3(x,y,z)))
                     {
@@ -557,47 +592,87 @@ void ParticleSystem::particleContainerCollision(int index)
     glm::vec3 v0, v1, v2, n, intersectionPoint;
     glm::vec3 x1, e1, e2;
     
-    float da, db;
+    float da, db;                                   //2D barycentric
+
+    //3D barycentric
+    float u, v, w, d00, d01, d11, d20, d21, denom;
+    glm::vec3 p0, p1, p2;
+    
     int triIndex;
     
     glm::ivec3 hashPosition = currParticle.getHashPosition();
     int gridPosition = hashPosition.x + gridDim.x * (hashPosition.y + gridDim.y * hashPosition.z);
-    float scale = 1.02;
     
-    if(containerBool.at(gridPosition))
+    if(gridPosition < containerBool.size())
     {
-        for(int i = 0; i<containerGrid.at(gridPosition).size(); ++i)
+        if(containerBool.at(gridPosition))
         {
-            // triangle-particle collision
-            triIndex = containerGrid.at(gridPosition).at(i);
-            v0 = container.triangles.at(triIndex)*scale;
-            v1 = container.triangles.at(triIndex + 1)*scale;
-            v2 = container.triangles.at(triIndex + 2)*scale;
-            n = container.normals.at(triIndex/3);
-            
-            da = glm::dot((particlePos-v0), n);
-            db = glm::dot((particlePredictedPos-v0), n);
-            
-            if(da*db < ZERO_ABSORPTION_EPSILON)
+            for(int i = 0; i<containerGrid.at(gridPosition).size(); ++i)
             {
-                // collision
-                intersectionPoint = (da*particlePredictedPos - db*particlePos) / (da - db);
+                // triangle-particle collision
+                triIndex = containerGrid.at(gridPosition).at(i);
+                v0 = container.triangles.at(triIndex);
+                v1 = container.triangles.at(triIndex + 1);
+                v2 = container.triangles.at(triIndex + 2);
+                n = container.normals.at(triIndex/3);
                 
-                //reduce to 2D, remove z
-                x1 = glm::vec3(intersectionPoint.x - v0.x, intersectionPoint.y - v0.y, 0);
-                e1 = glm::vec3(v1.x-v0.x, v1.y-v0.y, 0);
-                e2 = glm::vec3(v2.x-v0.x, v2.y-v0.y, 0);
+                da = glm::dot((v0-particlePos), n);
+                db = glm::dot((v0-particlePredictedPos), n);
                 
-                da = glm::length(glm::cross(x1, e2)) / glm::length(glm::cross(e1, e2));
-                db = glm::length(glm::cross(x1, e1)) / glm::length(glm::cross(e1, e2));
+                //2D barycentric
+//                if(da*db < ZERO_ABSORPTION_EPSILON)
+//                {
+//                    // collision
+//                    intersectionPoint = (da*particlePredictedPos - db*particlePos) / (da - db);
+//                    
+//                    //reduce to 2D, remove z
+//                    x1 = glm::vec3(intersectionPoint.x - v0.x, intersectionPoint.y - v0.y, 0);
+//                    e1 = glm::vec3(v1.x-v0.x, v1.y-v0.y, 0);
+//                    e2 = glm::vec3(v2.x-v0.x, v2.y-v0.y, 0);
+//                    
+//                    da = glm::length(glm::cross(x1, e2)) / glm::length(glm::cross(e1, e2));
+//                    db = glm::length(glm::cross(x1, e1)) / glm::length(glm::cross(e1, e2));
+//                    
+//                    if(! (da < ZERO_ABSORPTION_EPSILON || db < ZERO_ABSORPTION_EPSILON || da+db > 1-ZERO_ABSORPTION_EPSILON) )
+//                    {
+//                        // handle collision
+//                        
+//                        currParticle.setPredictedPosition(particlePos);
+//                        currParticle.setVelocity(glm::reflect(currParticle.getVelocity(), n) * 0.4f);
+////                        currParticle.setPredictedPosition(particlePos + timeStep * currParticle.getVelocity());
+//                    }
+//                }
                 
-                if(! (da < ZERO_ABSORPTION_EPSILON || db < ZERO_ABSORPTION_EPSILON || da+db > 1-ZERO_ABSORPTION_EPSILON) )
+                //3D barycentric
+                //  Reference : http://gamedev.stackexchange.com/questions/23743/whats-the-most-efficient-way-to-find-barycentric-coordinates
+
+                if(da*db < ZERO_ABSORPTION_EPSILON)// || (da<ZERO_ABSORPTION_EPSILON && da>-ZERO_ABSORPTION_EPSILON) || (db<ZERO_ABSORPTION_EPSILON && db>-ZERO_ABSORPTION_EPSILON) )
                 {
-                    // handle collision
+//                    // collision
+//                    intersectionPoint = (da*particlePredictedPos - db*particlePos) / (da - db);
+//                    p0 = v1-v0;
+//                    p1 = v2-v0;
+//                    p2 = intersectionPoint - v0;
+//                    
+//                    d00 = glm::dot(p0, p0);
+//                    d01 = glm::dot(p0, p1);
+//                    d11 = glm::dot(p1, p1);
+//                    d20 = glm::dot(p2, p0);
+//                    d21 = glm::dot(p2, p1);
+//                    denom = (d00*d11 - d01*d01);
+//                    
+//                    v = (d11 * d20 - d01 * d21) / denom;
+//                    w = (d00 * d21 - d01 * d20) / denom;
+//                    
+//                    if(! (v < ZERO_ABSORPTION_EPSILON || w < ZERO_ABSORPTION_EPSILON || v+w > 1-ZERO_ABSORPTION_EPSILON) )
+//                    {
+                        currParticle.setVelocity(glm::reflect(currParticle.getVelocity(), n) * 1.f);
+//                        currParticle.setPredictedPosition(particlePos + 1.f * timeStep * currParticle.getVelocity());
+//                        currParticle.setPredictedPosition(particlePos);
                     
-//                    currParticle.setPredictedPosition(particlePos);
-                    currParticle.setVelocity(glm::reflect(currParticle.getVelocity(), n) * 0.7f);
-                    currParticle.setPredictedPosition(particlePos + timeStep * currParticle.getVelocity());
+                    //if particle goes out of the mesh, increase the multiplying factor of timeStep*n
+                        currParticle.setPredictedPosition(particlePos + 1.5f * timeStep * n);
+//                    }
                 }
             }
         }
@@ -610,7 +685,7 @@ void ParticleSystem::particleBoxCollision(int index)
     glm::vec3 particlePosition = currParticle.getPredictedPosition();
 
     float radius = currParticle.getRadius();
-    float dampingFactor = 0.5f;
+    float dampingFactor = 0.6f;
     
     if(particlePosition.x - radius < lowerBounds.x + EPSILON || particlePosition.x + radius > upperBounds.x - EPSILON)
     {

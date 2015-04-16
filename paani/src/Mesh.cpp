@@ -149,7 +149,7 @@ std::vector<glm::vec3> Mesh::getNormals(int index)
         v2= m_Entries[index].vertices[i+1].vertCoord;
         v3= m_Entries[index].vertices[i+2].vertCoord;
         
-        normalCoord.push_back(glm::normalize(glm::cross((v2-v1),(v3-v1))));
+        normalCoord.push_back(glm::normalize(glm::cross((v3-v1),(v2-v1))));
     }
     
     return normalCoord;

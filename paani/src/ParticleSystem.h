@@ -31,7 +31,7 @@ class ParticleSystem
 
 private:
     std::vector <Particle> particles;   //List of all particles in the system
-
+    std::vector <glm::vec3> particlesPos;
     const float poly6Const = 315.0 / (64 * PI);
     const float spikyConst = 45.0 / (PI);
     const float restDensity = 1000.0; //1000kg/m3
@@ -68,6 +68,7 @@ public:
     
     //Getter functions
     std::vector<Particle>& getAllParticles();   //Returns the list of all particles in the system
+    std::vector<glm::vec3>& getAllParticlesPos();
     float getRestDensity();
     float getSmoothingRadius();
     
