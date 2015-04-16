@@ -1,0 +1,7 @@
+Build/
+DerivedData/
+*.DS_Store
+*.o
+*.d
+*.dia
+*.hmap
