@@ -9,26 +9,20 @@
 #include "SOP_Paani.h"
 
 #include <GU/GU_Detail.h>
-#include <GU/GU_PrimSphere.h>
 #include <OP/OP_Operator.h>
 #include <OP/OP_OperatorTable.h>
+#include <OP/OP_AutoLockInputs.h>
 #include <PRM/PRM_Include.h>
 #include <CH/CH_LocalVariable.h>
 #include <UT/UT_DSOVersion.h>
 #include <UT/UT_Interrupt.h>
 #include <SYS/SYS_Math.h>
 #include <limits.h>
-#include <GEO/GEO_PrimType.h>
 #include <GU/GU_PrimPart.h>
+#include <stddef.h>
 
 using namespace HDK_Sample;
 Scene* scene;
-//
-// Help is stored in a "wiki" style text file.  This text file should be copied
-// to $HOUDINI_PATH/help/nodes/sop/star.txt
-//
-// See the sample_install.sh file for an example.
-//
 
 
 ///

@@ -78,8 +78,8 @@ void Scene::init(){
     glm::vec3 position, velocity = glm::vec3(utilityCore::randomFloat(),0,utilityCore::randomFloat());
 
     float smoothingRad = particleSystem->getSmoothingRadius() * 1.f;
-    int damnDim = static_cast <int> (std::cbrt(numberOfParticles)),
-//    int damnDim = static_cast <int> (std::sqrt(numberOfParticles)),
+    int damnDim = static_cast <int> (cbrt(numberOfParticles)),
+//    int damnDim = static_cast <int> (sqrt(numberOfParticles)),
         i,j,k=0;
     
     //set up dam break

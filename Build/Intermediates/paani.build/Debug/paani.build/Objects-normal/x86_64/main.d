@@ -1,97 +1,91 @@
 dependencies: \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/src/main.cpp \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/src/scene.h \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glew/include/GL/glew.h \
-  /usr/local/include/GLFW/glfw3.h \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/glm.hpp \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/core/_fixes.hpp \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/core/setup.hpp \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/./core/_detail.hpp \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/./core/type.hpp \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/core/type_half.hpp \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/core/type_half.inl \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/core/type_float.hpp \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/core/type_int.hpp \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/core/type_gentype.hpp \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/core/type_size.hpp \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/core/type_vec1.hpp \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/core/type_vec.hpp \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/core/_swizzle.hpp \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/core/_swizzle_func.hpp \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/core/type_vec1.inl \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/core/type_vec2.hpp \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/core/type_vec2.inl \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/core/type_vec3.hpp \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/core/type_vec3.inl \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/core/type_vec4.hpp \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/core/type_vec4.inl \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/core/type_mat2x2.hpp \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/core/type_mat.hpp \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/core/type_mat2x2.inl \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/core/type_mat2x3.hpp \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/core/type_mat2x3.inl \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/core/type_mat2x4.hpp \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/core/type_mat2x4.inl \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/core/type_mat3x2.hpp \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/core/type_mat3x2.inl \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/core/type_mat3x3.hpp \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/core/type_mat3x3.inl \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/core/type_mat3x4.hpp \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/core/type_mat3x4.inl \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/core/type_mat4x2.hpp \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/core/type_mat4x2.inl \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/core/type_mat4x3.hpp \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/core/type_mat4x3.inl \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/core/type_mat4x4.hpp \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/core/type_mat4x4.inl \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/./core/func_trigonometric.hpp \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/core/func_trigonometric.inl \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/core/_vectorize.hpp \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/./core/func_exponential.hpp \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/core/func_exponential.inl \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/./core/func_common.hpp \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/core/func_common.inl \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/./core/func_packing.hpp \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/core/func_packing.inl \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/./core/func_geometric.hpp \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/core/func_geometric.inl \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/./core/func_matrix.hpp \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/core/func_matrix.inl \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/./core/func_vector_relational.hpp \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/core/func_vector_relational.inl \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/./core/func_integer.hpp \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/core/func_integer.inl \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/./core/func_noise.hpp \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/core/func_noise.inl \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/gtc/matrix_transform.hpp \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/osx/glm/glm/gtc/matrix_transform.inl \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/src/imageloader.h \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/src/ParticleSystem.h \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/src/Particle.h \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/src/utilities.h \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/src/Mesh.h \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/scene.h \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/types.h \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/defs.h \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/vector3.h \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/./Compiler/pushpack1.h \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/./Compiler/poppack1.h \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/vector2.h \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/color4.h \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/matrix3x3.h \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/matrix4x4.h \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/quaternion.h \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/vector2.inl \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/vector3.inl \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/color4.inl \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/quaternion.inl \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/matrix3x3.inl \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/matrix4x4.inl \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/texture.h \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/mesh.h \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/light.h \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/camera.h \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/material.h \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/material.inl \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/anim.h \
-  /Users/sanchitgarg/Desktop/cggt/spring\ 2015/advanced\ cg/cis660pbf/code/paani/paani/thirdparty/assimp-3.1.1/include/assimp/metadata.h
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/src/main.cpp \
+  /usr/local/include/GL/glew.h /usr/local/include/GLFW/glfw3.h \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/glm.hpp \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/core/_fixes.hpp \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/core/setup.hpp \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/./core/_detail.hpp \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/./core/type.hpp \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/core/type_half.hpp \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/core/type_half.inl \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/core/type_float.hpp \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/core/type_int.hpp \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/core/type_gentype.hpp \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/core/type_size.hpp \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/core/type_vec1.hpp \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/core/type_vec.hpp \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/core/_swizzle.hpp \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/core/_swizzle_func.hpp \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/core/type_vec1.inl \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/core/type_vec2.hpp \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/core/type_vec2.inl \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/core/type_vec3.hpp \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/core/type_vec3.inl \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/core/type_vec4.hpp \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/core/type_vec4.inl \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/core/type_mat2x2.hpp \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/core/type_mat.hpp \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/core/type_mat2x2.inl \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/core/type_mat2x3.hpp \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/core/type_mat2x3.inl \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/core/type_mat2x4.hpp \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/core/type_mat2x4.inl \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/core/type_mat3x2.hpp \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/core/type_mat3x2.inl \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/core/type_mat3x3.hpp \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/core/type_mat3x3.inl \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/core/type_mat3x4.hpp \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/core/type_mat3x4.inl \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/core/type_mat4x2.hpp \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/core/type_mat4x2.inl \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/core/type_mat4x3.hpp \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/core/type_mat4x3.inl \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/core/type_mat4x4.hpp \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/core/type_mat4x4.inl \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/./core/func_trigonometric.hpp \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/core/func_trigonometric.inl \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/core/_vectorize.hpp \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/./core/func_exponential.hpp \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/core/func_exponential.inl \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/./core/func_common.hpp \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/core/func_common.inl \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/./core/func_packing.hpp \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/core/func_packing.inl \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/./core/func_geometric.hpp \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/core/func_geometric.inl \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/./core/func_matrix.hpp \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/core/func_matrix.inl \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/./core/func_vector_relational.hpp \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/core/func_vector_relational.inl \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/./core/func_integer.hpp \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/core/func_integer.inl \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/./core/func_noise.hpp \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/core/func_noise.inl \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/gtc/matrix_transform.hpp \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/gtc/../glm.hpp \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/osx/glm/glm/gtc/matrix_transform.inl \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/src/scene.h \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/src/imageloader.h \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/src/ParticleSystem.h \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/src/Particle.h \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/src/utilities.h \
+  /Users/debanshu/Dropbox/work/code/github/paani/paani/src/Mesh.h \
+  /usr/local/include/assimp/scene.h /usr/local/include/assimp/types.h \
+  /usr/local/include/assimp/defs.h /usr/local/include/assimp/vector3.h \
+  /usr/local/include/assimp/./Compiler/pushpack1.h \
+  /usr/local/include/assimp/./Compiler/poppack1.h \
+  /usr/local/include/assimp/vector2.h /usr/local/include/assimp/color4.h \
+  /usr/local/include/assimp/matrix3x3.h \
+  /usr/local/include/assimp/matrix4x4.h \
+  /usr/local/include/assimp/quaternion.h \
+  /usr/local/include/assimp/vector2.inl \
+  /usr/local/include/assimp/vector3.inl \
+  /usr/local/include/assimp/color4.inl \
+  /usr/local/include/assimp/quaternion.inl \
+  /usr/local/include/assimp/matrix3x3.inl \
+  /usr/local/include/assimp/matrix4x4.inl \
+  /usr/local/include/assimp/texture.h /usr/local/include/assimp/mesh.h \
+  /usr/local/include/assimp/light.h /usr/local/include/assimp/camera.h \
+  /usr/local/include/assimp/material.h \
+  /usr/local/include/assimp/material.inl \
+  /usr/local/include/assimp/anim.h /usr/local/include/assimp/metadata.h

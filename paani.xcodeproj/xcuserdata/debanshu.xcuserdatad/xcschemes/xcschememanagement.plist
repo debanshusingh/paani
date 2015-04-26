@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>buildHDK.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>libpaani.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>paani.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,7 +22,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>128C4BA91AE7D0A30084E1E1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>128C4BB91AE7D6BB0084E1E1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>128C4BD11AE7DDF00084E1E1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>12E928A21AA26FF600D11B5B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>12FF55211AE73FC9002D96F1</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -3,16 +3,32 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 47;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		1281BD971ADE352100A51AE3 /* libassimp.3.1.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1281BD961ADE352100A51AE3 /* libassimp.3.1.1.dylib */; };
+		128C4BAF1AE7D1320084E1E1 /* Mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 89FFCC531ADE2F74009CD205 /* Mesh.cpp */; };
+		128C4BB01AE7D1320084E1E1 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 12CB7C421AA272990095666D /* main.cpp */; };
+		128C4BB11AE7D1320084E1E1 /* scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8936A2841AB2244400B9C75D /* scene.cpp */; };
+		128C4BB21AE7D1320084E1E1 /* ParticleSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 896ABBF91AA2985C001480C1 /* ParticleSystem.cpp */; };
+		128C4BB31AE7D1320084E1E1 /* Particle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 896ABBF71AA2985C001480C1 /* Particle.cpp */; };
+		128C4BB41AE7D1320084E1E1 /* imageloader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 89A663DF1AB5432600B11963 /* imageloader.cpp */; };
+		128C4BB51AE7D1320084E1E1 /* utilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 12F5ECA11AA2900C0055DEE6 /* utilities.cpp */; };
+		128C4BBD1AE7D6BB0084E1E1 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 128C4BBC1AE7D6BB0084E1E1 /* main.cpp */; };
+		128C4BC21AE7D9F40084E1E1 /* libtbb.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 897E7F511AD4D91C0056699C /* libtbb.dylib */; };
+		128C4BC81AE7DA420084E1E1 /* libtbbmalloc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 897E7F521AD4D91C0056699C /* libtbbmalloc.dylib */; };
+		128C4BC91AE7DA460084E1E1 /* libglfw3.3.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8995F2D11AE06CFD00E49A3F /* libglfw3.3.1.dylib */; };
+		128C4BCA1AE7DA970084E1E1 /* libassimp.3.1.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1281BD961ADE352100A51AE3 /* libassimp.3.1.1.dylib */; };
+		128C4BCB1AE7DA9A0084E1E1 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12CB7C451AA275E90095666D /* OpenGL.framework */; };
+		128C4BCC1AE7DA9C0084E1E1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12CB7C491AA276B30095666D /* Cocoa.framework */; };
+		128C4BCD1AE7DA9E0084E1E1 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12CB7C471AA276870095666D /* IOKit.framework */; };
+		128C4BCF1AE7DC250084E1E1 /* libGLEW.1.11.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 128C4BCE1AE7DC250084E1E1 /* libGLEW.1.11.0.dylib */; };
+		128C4BD01AE7DCC20084E1E1 /* libGLEW.1.11.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 128C4BCE1AE7DC250084E1E1 /* libGLEW.1.11.0.dylib */; };
 		12CB7C431AA272990095666D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 12CB7C421AA272990095666D /* main.cpp */; };
 		12CB7C461AA275E90095666D /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12CB7C451AA275E90095666D /* OpenGL.framework */; };
 		12CB7C481AA276870095666D /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12CB7C471AA276870095666D /* IOKit.framework */; };
 		12CB7C4A1AA276B30095666D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12CB7C491AA276B30095666D /* Cocoa.framework */; };
-		12F5ECA01AA28E960055DEE6 /* libGLEW.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 12F5EC9F1AA28E960055DEE6 /* libGLEW.a */; };
 		12F5ECA31AA2900C0055DEE6 /* utilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 12F5ECA11AA2900C0055DEE6 /* utilities.cpp */; };
 		8936A2861AB2244400B9C75D /* scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8936A2841AB2244400B9C75D /* scene.cpp */; };
 		896ABBFB1AA2985C001480C1 /* Particle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 896ABBF71AA2985C001480C1 /* Particle.cpp */; };
@@ -25,6 +41,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		128C4BB81AE7D6BB0084E1E1 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		12E928A11AA26FF600D11B5B /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -37,44 +62,69 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		125CDE8D1ABCECA8000DE80C /* SOP_Paani.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOP_Paani.h; sourceTree = "<group>"; };
-		125CDE8F1ABCECC9000DE80C /* SOP_Paani.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SOP_Paani.c; sourceTree = "<group>"; };
 		12730EA31ADB355800F13D4C /* frag.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = frag.glsl; path = shaders/frag.glsl; sourceTree = "<group>"; };
 		12730EA41ADB355800F13D4C /* vert.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vert.glsl; path = shaders/vert.glsl; sourceTree = "<group>"; };
 		1281BD961ADE352100A51AE3 /* libassimp.3.1.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libassimp.3.1.1.dylib; path = "paani/thirdparty/assimp-3.1.1/lib/libassimp.3.1.1.dylib"; sourceTree = "<group>"; };
+		128C4BAA1AE7D0A30084E1E1 /* libpaani.dylib */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libpaani.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		128C4BBA1AE7D6BB0084E1E1 /* buildHDK */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = buildHDK; sourceTree = BUILT_PRODUCTS_DIR; };
+		128C4BBC1AE7D6BB0084E1E1 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		128C4BCE1AE7DC250084E1E1 /* libGLEW.1.11.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.1.11.0.dylib; path = /usr/local/Cellar/glew/1.11.0/lib/libGLEW.1.11.0.dylib; sourceTree = "<absolute>"; };
 		12CB7C421AA272990095666D /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		12CB7C451AA275E90095666D /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		12CB7C471AA276870095666D /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		12CB7C491AA276B30095666D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		12E928A31AA26FF600D11B5B /* paani */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = paani; sourceTree = BUILT_PRODUCTS_DIR; };
-		12F5EC9F1AA28E960055DEE6 /* libGLEW.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGLEW.a; path = paani/thirdparty/osx/glew/lib/libGLEW.a; sourceTree = "<group>"; };
 		12F5ECA11AA2900C0055DEE6 /* utilities.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = utilities.cpp; sourceTree = "<group>"; };
-		12F5ECA21AA2900C0055DEE6 /* utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utilities.h; sourceTree = "<group>"; };
+		12F5ECA21AA2900C0055DEE6 /* utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = utilities.h; path = src/utilities.h; sourceTree = "<group>"; };
+		12FF55291AE74077002D96F1 /* SOP_Paani.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SOP_Paani.h; path = src/SOP_Paani.h; sourceTree = "<group>"; };
+		12FF552A1AE74077002D96F1 /* SOP_Paani.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SOP_Paani.c; sourceTree = "<group>"; };
 		8936A2841AB2244400B9C75D /* scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = scene.cpp; sourceTree = "<group>"; };
-		8936A2851AB2244400B9C75D /* scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scene.h; sourceTree = "<group>"; };
+		8936A2851AB2244400B9C75D /* scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = scene.h; path = src/scene.h; sourceTree = "<group>"; };
 		896ABBF71AA2985C001480C1 /* Particle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Particle.cpp; sourceTree = "<group>"; };
-		896ABBF81AA2985C001480C1 /* Particle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Particle.h; sourceTree = "<group>"; };
+		896ABBF81AA2985C001480C1 /* Particle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Particle.h; path = src/Particle.h; sourceTree = "<group>"; };
 		896ABBF91AA2985C001480C1 /* ParticleSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParticleSystem.cpp; sourceTree = "<group>"; };
-		896ABBFA1AA2985C001480C1 /* ParticleSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleSystem.h; sourceTree = "<group>"; };
-		897E7F511AD4D91C0056699C /* libtbb.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libtbb.dylib; path = "../../../../../../../../../usr/local/Cellar/tbb/4.3-20141023/lib/libtbb.dylib"; sourceTree = "<group>"; };
-		897E7F521AD4D91C0056699C /* libtbbmalloc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libtbbmalloc.dylib; path = "../../../../../../../../../usr/local/Cellar/tbb/4.3-20141023/lib/libtbbmalloc.dylib"; sourceTree = "<group>"; };
-		8995F2D11AE06CFD00E49A3F /* libglfw3.3.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw3.3.1.dylib; path = ../../../../../../../../../usr/local/Cellar/glfw3/3.1/lib/libglfw3.3.1.dylib; sourceTree = "<group>"; };
+		896ABBFA1AA2985C001480C1 /* ParticleSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParticleSystem.h; path = src/ParticleSystem.h; sourceTree = "<group>"; };
+		897E7F511AD4D91C0056699C /* libtbb.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libtbb.dylib; path = "/usr/local/Cellar/tbb/4.3-20141023/lib/libtbb.dylib"; sourceTree = "<absolute>"; };
+		897E7F521AD4D91C0056699C /* libtbbmalloc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libtbbmalloc.dylib; path = "/usr/local/Cellar/tbb/4.3-20141023/lib/libtbbmalloc.dylib"; sourceTree = "<absolute>"; };
+		8995F2D11AE06CFD00E49A3F /* libglfw3.3.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw3.3.1.dylib; path = /usr/local/Cellar/glfw3/3.1/lib/libglfw3.3.1.dylib; sourceTree = "<absolute>"; };
 		89A663DF1AB5432600B11963 /* imageloader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imageloader.cpp; sourceTree = "<group>"; };
-		89A663E01AB5432600B11963 /* imageloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imageloader.h; sourceTree = "<group>"; };
+		89A663E01AB5432600B11963 /* imageloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = imageloader.h; path = src/imageloader.h; sourceTree = "<group>"; };
 		89FFCC531ADE2F74009CD205 /* Mesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Mesh.cpp; sourceTree = "<group>"; };
-		89FFCC541ADE2F74009CD205 /* Mesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mesh.h; sourceTree = "<group>"; };
+		89FFCC541ADE2F74009CD205 /* Mesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Mesh.h; path = src/Mesh.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		128C4BA71AE7D0A30084E1E1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				128C4BCA1AE7DA970084E1E1 /* libassimp.3.1.1.dylib in Frameworks */,
+				128C4BD01AE7DCC20084E1E1 /* libGLEW.1.11.0.dylib in Frameworks */,
+				128C4BC91AE7DA460084E1E1 /* libglfw3.3.1.dylib in Frameworks */,
+				128C4BCD1AE7DA9E0084E1E1 /* IOKit.framework in Frameworks */,
+				128C4BCC1AE7DA9C0084E1E1 /* Cocoa.framework in Frameworks */,
+				128C4BCB1AE7DA9A0084E1E1 /* OpenGL.framework in Frameworks */,
+				128C4BC21AE7D9F40084E1E1 /* libtbb.dylib in Frameworks */,
+				128C4BC81AE7DA420084E1E1 /* libtbbmalloc.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		128C4BB71AE7D6BB0084E1E1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		12E928A01AA26FF600D11B5B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				128C4BCF1AE7DC250084E1E1 /* libGLEW.1.11.0.dylib in Frameworks */,
 				8995F2D21AE06CFD00E49A3F /* libglfw3.3.1.dylib in Frameworks */,
 				1281BD971ADE352100A51AE3 /* libassimp.3.1.1.dylib in Frameworks */,
 				897E7F531AD4D91C0056699C /* libtbb.dylib in Frameworks */,
 				897E7F541AD4D91C0056699C /* libtbbmalloc.dylib in Frameworks */,
-				12F5ECA01AA28E960055DEE6 /* libGLEW.a in Frameworks */,
 				12CB7C4A1AA276B30095666D /* Cocoa.framework in Frameworks */,
 				12CB7C481AA276870095666D /* IOKit.framework in Frameworks */,
 				12CB7C461AA275E90095666D /* OpenGL.framework in Frameworks */,
@@ -93,24 +143,39 @@
 			name = shaders;
 			sourceTree = "<group>";
 		};
+		128C4BAE1AE7D10D0084E1E1 /* headers */ = {
+			isa = PBXGroup;
+			children = (
+				12FF55291AE74077002D96F1 /* SOP_Paani.h */,
+				89FFCC541ADE2F74009CD205 /* Mesh.h */,
+				8936A2851AB2244400B9C75D /* scene.h */,
+				896ABBFA1AA2985C001480C1 /* ParticleSystem.h */,
+				896ABBF81AA2985C001480C1 /* Particle.h */,
+				89A663E01AB5432600B11963 /* imageloader.h */,
+				12F5ECA21AA2900C0055DEE6 /* utilities.h */,
+			);
+			name = headers;
+			sourceTree = "<group>";
+		};
+		128C4BBB1AE7D6BB0084E1E1 /* buildHDK */ = {
+			isa = PBXGroup;
+			children = (
+				128C4BBC1AE7D6BB0084E1E1 /* main.cpp */,
+			);
+			path = buildHDK;
+			sourceTree = "<group>";
+		};
 		12CB7C411AA272990095666D /* src */ = {
 			isa = PBXGroup;
 			children = (
+				12FF552A1AE74077002D96F1 /* SOP_Paani.c */,
 				89FFCC531ADE2F74009CD205 /* Mesh.cpp */,
-				89FFCC541ADE2F74009CD205 /* Mesh.h */,
 				12CB7C421AA272990095666D /* main.cpp */,
 				8936A2841AB2244400B9C75D /* scene.cpp */,
-				8936A2851AB2244400B9C75D /* scene.h */,
 				896ABBF91AA2985C001480C1 /* ParticleSystem.cpp */,
-				896ABBFA1AA2985C001480C1 /* ParticleSystem.h */,
 				896ABBF71AA2985C001480C1 /* Particle.cpp */,
-				896ABBF81AA2985C001480C1 /* Particle.h */,
-				125CDE8F1ABCECC9000DE80C /* SOP_Paani.c */,
-				125CDE8D1ABCECA8000DE80C /* SOP_Paani.h */,
 				89A663DF1AB5432600B11963 /* imageloader.cpp */,
-				89A663E01AB5432600B11963 /* imageloader.h */,
 				12F5ECA11AA2900C0055DEE6 /* utilities.cpp */,
-				12F5ECA21AA2900C0055DEE6 /* utilities.h */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -118,15 +183,12 @@
 		12E9289A1AA26FF600D11B5B = {
 			isa = PBXGroup;
 			children = (
-				8995F2D11AE06CFD00E49A3F /* libglfw3.3.1.dylib */,
-				1281BD961ADE352100A51AE3 /* libassimp.3.1.1.dylib */,
-				897E7F511AD4D91C0056699C /* libtbb.dylib */,
-				897E7F521AD4D91C0056699C /* libtbbmalloc.dylib */,
-				12F5EC9F1AA28E960055DEE6 /* libGLEW.a */,
+				12FF553B1AE74143002D96F1 /* libs */,
 				12CB7C491AA276B30095666D /* Cocoa.framework */,
 				12CB7C471AA276870095666D /* IOKit.framework */,
 				12CB7C451AA275E90095666D /* OpenGL.framework */,
 				12E928A51AA26FF600D11B5B /* paani */,
+				128C4BBB1AE7D6BB0084E1E1 /* buildHDK */,
 				12E928A41AA26FF600D11B5B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -135,6 +197,8 @@
 			isa = PBXGroup;
 			children = (
 				12E928A31AA26FF600D11B5B /* paani */,
+				128C4BAA1AE7D0A30084E1E1 /* libpaani.dylib */,
+				128C4BBA1AE7D6BB0084E1E1 /* buildHDK */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -142,6 +206,7 @@
 		12E928A51AA26FF600D11B5B /* paani */ = {
 			isa = PBXGroup;
 			children = (
+				128C4BAE1AE7D10D0084E1E1 /* headers */,
 				12CB7C411AA272990095666D /* src */,
 				12730EA21ADB354900F13D4C /* shaders */,
 				12F5EC9B1AA2870D0055DEE6 /* thirdparty */,
@@ -156,9 +221,66 @@
 			name = thirdparty;
 			sourceTree = "<group>";
 		};
+		12FF553B1AE74143002D96F1 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				128C4BCE1AE7DC250084E1E1 /* libGLEW.1.11.0.dylib */,
+				8995F2D11AE06CFD00E49A3F /* libglfw3.3.1.dylib */,
+				1281BD961ADE352100A51AE3 /* libassimp.3.1.1.dylib */,
+				897E7F511AD4D91C0056699C /* libtbb.dylib */,
+				897E7F521AD4D91C0056699C /* libtbbmalloc.dylib */,
+			);
+			name = libs;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		128C4BA81AE7D0A30084E1E1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		128C4BA91AE7D0A30084E1E1 /* libpaani */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 128C4BAB1AE7D0A30084E1E1 /* Build configuration list for PBXNativeTarget "libpaani" */;
+			buildPhases = (
+				128C4BA61AE7D0A30084E1E1 /* Sources */,
+				128C4BA71AE7D0A30084E1E1 /* Frameworks */,
+				128C4BA81AE7D0A30084E1E1 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = libpaani;
+			productName = libpaani;
+			productReference = 128C4BAA1AE7D0A30084E1E1 /* libpaani.dylib */;
+			productType = "com.apple.product-type.library.static";
+		};
+		128C4BB91AE7D6BB0084E1E1 /* buildHDK */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 128C4BBE1AE7D6BB0084E1E1 /* Build configuration list for PBXNativeTarget "buildHDK" */;
+			buildPhases = (
+				128C4BB61AE7D6BB0084E1E1 /* Sources */,
+				128C4BB71AE7D6BB0084E1E1 /* Frameworks */,
+				128C4BB81AE7D6BB0084E1E1 /* CopyFiles */,
+				128C4BC11AE7D6E30084E1E1 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = buildHDK;
+			productName = buildHDK;
+			productReference = 128C4BBA1AE7D6BB0084E1E1 /* buildHDK */;
+			productType = "com.apple.product-type.tool";
+		};
 		12E928A21AA26FF600D11B5B /* paani */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 12E928AA1AA26FF600D11B5B /* Build configuration list for PBXNativeTarget "paani" */;
@@ -183,16 +305,22 @@
 		12E9289B1AA26FF600D11B5B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = Debanshu;
 				TargetAttributes = {
+					128C4BA91AE7D0A30084E1E1 = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+					128C4BB91AE7D6BB0084E1E1 = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
 					12E928A21AA26FF600D11B5B = {
 						CreatedOnToolsVersion = 6.1.1;
 					};
 				};
 			};
 			buildConfigurationList = 12E9289E1AA26FF600D11B5B /* Build configuration list for PBXProject "paani" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 6.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -204,6 +332,8 @@
 			projectRoot = "";
 			targets = (
 				12E928A21AA26FF600D11B5B /* paani */,
+				128C4BA91AE7D0A30084E1E1 /* libpaani */,
+				128C4BB91AE7D6BB0084E1E1 /* buildHDK */,
 			);
 		};
 /* End PBXProject section */
@@ -221,11 +351,47 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd /Library/Frameworks/Houdini.framework/Versions/14.0.258/Resources/; source houdini_setup;cd -;\nhcustom -I./paani/thirdparty/osx/glew/include -I./paani/thirdparty/osx/glfw/include -I./paani/thirdparty/osx/glm/ -I/usr/local/include paani/src/SOP_Paani.C;\ncp Build/Intermediates/paani.build/Release/paani.build/Objects-normal/x86_64/*.o paani/src/;\n/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -bundle -flat_namespace -undefined suppress paani/src/utilities.o paani/src/Particle.o paani/src/Mesh.o paani/src/ParticleSystem.o paani/src/scene.o paani/src/SOP_Paani.o -arch x86_64 -fobjc-gc -I./../thirdparty/osx/glm -framework OpenGL -framework Cocoa -stdlib=libstdc++ -o $HOME/Library/Preferences/houdini/14.0/dso/SOP_Paani.dylib";
+			shellScript = "cd /Library/Frameworks/Houdini.framework/Versions/14.0.258/Resources/; source houdini_setup;cd -;\nhcustom -I./paani/thirdparty/osx/glew/include -I./paani/thirdparty/osx/glfw/include -I./paani/thirdparty/osx/glm/ -I/Library/Frameworks/Houdini.framework/Versions/14.0.258/Resources/toolkit/include -I/usr/local/include paani/src/SOP_Paani.C;\ncp Build/Intermediates/paani.build/Release/paani.build/Objects-normal/x86_64/*.o paani/src/;\n/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -bundle -flat_namespace -undefined suppress paani/src/utilities.o paani/src/Particle.o paani/src/Mesh.o paani/src/ParticleSystem.o paani/src/scene.o paani/src/SOP_Paani.o -arch x86_64 -fobjc-gc -I./../thirdparty/osx/glm -framework OpenGL -framework Cocoa -stdlib=libstdc++ -o $HOME/Library/Preferences/houdini/14.0/dso/SOP_Paani.dylib";
+			showEnvVarsInLog = 0;
+		};
+		128C4BC11AE7D6E30084E1E1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd /Library/Frameworks/Houdini.framework/Versions/14.0.258/Resources/; source houdini_setup;cd -;\nhcustom -I./paani/thirdparty/osx/glew/include -I./paani/thirdparty/osx/glfw/include -I./paani/thirdparty/osx/glm/ -I/Library/Frameworks/Houdini.framework/Versions/14.0.258/Resources/toolkit/include -I/usr/local/include -L./Build/Products/Debug/ -lpaani paani/src/SOP_Paani.C;";
 		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		128C4BA61AE7D0A30084E1E1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				128C4BB21AE7D1320084E1E1 /* ParticleSystem.cpp in Sources */,
+				128C4BB31AE7D1320084E1E1 /* Particle.cpp in Sources */,
+				128C4BB41AE7D1320084E1E1 /* imageloader.cpp in Sources */,
+				128C4BB01AE7D1320084E1E1 /* main.cpp in Sources */,
+				128C4BB11AE7D1320084E1E1 /* scene.cpp in Sources */,
+				128C4BB51AE7D1320084E1E1 /* utilities.cpp in Sources */,
+				128C4BAF1AE7D1320084E1E1 /* Mesh.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		128C4BB61AE7D6BB0084E1E1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				128C4BBD1AE7D6BB0084E1E1 /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		12E9289F1AA26FF600D11B5B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -243,11 +409,105 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		128C4BAC1AE7D0A30084E1E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				EXECUTABLE_EXTENSION = dylib;
+				EXECUTABLE_PREFIX = lib;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/Library/Frameworks/Houdini.framework/Versions/14.0.258/Resources/toolkit/include,
+					/usr/local/include,
+					"$(PROJECT_DIR)/paani/thirdparty/osx/glm",
+				);
+				INSTALL_PATH = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/paani/thirdparty/osx/glew/lib",
+					"/usr/local/Cellar/tbb/4.3-20141023/lib",
+					"$(PROJECT_DIR)/paani/thirdparty/assimp-3.1.1/lib/",
+					/usr/local/Cellar/glfw3/3.1/lib,
+					/usr/local/Cellar/glew/1.11.0/lib,
+					"$(PROJECT_DIR)/paani/thirdparty/assimp-3.1.1/lib",
+				);
+				MACH_O_TYPE = mh_dylib;
+				PRODUCT_NAME = paani;
+				SYMROOT = build;
+			};
+			name = Debug;
+		};
+		128C4BAD1AE7D0A30084E1E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				COPY_PHASE_STRIP = NO;
+				EXECUTABLE_EXTENSION = dylib;
+				EXECUTABLE_PREFIX = lib;
+				GCC_NO_COMMON_BLOCKS = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/Library/Frameworks/Houdini.framework/Versions/14.0.258/Resources/toolkit/include,
+					/usr/local/include,
+					"$(PROJECT_DIR)/paani/thirdparty/osx/glm",
+				);
+				INSTALL_PATH = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/paani/thirdparty/osx/glew/lib",
+					"/usr/local/Cellar/tbb/4.3-20141023/lib",
+					"$(PROJECT_DIR)/paani/thirdparty/assimp-3.1.1/lib/",
+					/usr/local/Cellar/glfw3/3.1/lib,
+					/usr/local/Cellar/glew/1.11.0/lib,
+					"$(PROJECT_DIR)/paani/thirdparty/assimp-3.1.1/lib",
+				);
+				MACH_O_TYPE = mh_dylib;
+				PRODUCT_NAME = paani;
+				SYMROOT = build;
+			};
+			name = Release;
+		};
+		128C4BBF1AE7D6BB0084E1E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				LD_DYLIB_INSTALL_NAME = libpaani.dylib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		128C4BC01AE7D6BB0084E1E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				COPY_PHASE_STRIP = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				LD_DYLIB_INSTALL_NAME = libpaani.dylib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		12E928A81AA26FF600D11B5B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -264,6 +524,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_INPUT_FILETYPE = automatic;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -280,11 +541,12 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					/Library/Frameworks/Houdini.framework/Versions/14.0.258/Resources/toolkit/include,
+					/usr/local/include,
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx10.9;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -292,7 +554,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -310,6 +572,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_INPUT_FILETYPE = automatic;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -320,16 +583,18 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					/Library/Frameworks/Houdini.framework/Versions/14.0.258/Resources/toolkit/include,
+					/usr/local/include,
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = macosx10.9;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
 		12E928AB1AA26FF600D11B5B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LIBRARY = "compiler-default";
 				FRAMEWORK_SEARCH_PATHS = "";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -345,6 +610,7 @@
 					"/usr/local/Cellar/tbb/4.3-20141023/lib",
 					/usr/local/Cellar/glfw3/3.1/lib,
 					"$(PROJECT_DIR)/paani/thirdparty/assimp-3.1.1/lib/",
+					/usr/local/Cellar/glew/1.11.0/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -353,6 +619,7 @@
 		12E928AC1AA26FF600D11B5B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LIBRARY = "compiler-default";
 				FRAMEWORK_SEARCH_PATHS = "";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -368,6 +635,7 @@
 					"/usr/local/Cellar/tbb/4.3-20141023/lib",
 					/usr/local/Cellar/glfw3/3.1/lib,
 					"$(PROJECT_DIR)/paani/thirdparty/assimp-3.1.1/lib/",
+					/usr/local/Cellar/glew/1.11.0/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -376,6 +644,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		128C4BAB1AE7D0A30084E1E1 /* Build configuration list for PBXNativeTarget "libpaani" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				128C4BAC1AE7D0A30084E1E1 /* Debug */,
+				128C4BAD1AE7D0A30084E1E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		128C4BBE1AE7D6BB0084E1E1 /* Build configuration list for PBXNativeTarget "buildHDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				128C4BBF1AE7D6BB0084E1E1 /* Debug */,
+				128C4BC01AE7D6BB0084E1E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		12E9289E1AA26FF600D11B5B /* Build configuration list for PBXProject "paani" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

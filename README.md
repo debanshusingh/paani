@@ -16,3 +16,7 @@ Usage
 Build paani.xcodeproj & Run
 Press q to quit
 
+==================
+Thirdparty Sources
+==================
+GLFW Keyboard Input - https://github.com/tomdalling/opengl-series

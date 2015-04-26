@@ -595,7 +595,7 @@ void ParticleSystem::particleContainerCollision(int index)
     float da, db;                                   //2D barycentric
 
     //3D barycentric
-    float u, v, w, d00, d01, d11, d20, d21, denom;
+//    float u, v, w, d00, d01, d11, d20, d21, denom;
     glm::vec3 p0, p1, p2;
     
     int triIndex;
