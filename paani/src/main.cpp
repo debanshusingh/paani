@@ -37,23 +37,6 @@ GLuint unifLightPos;
 GLuint unifLightColor;
 GLuint unifCamPos;
 
-GLuint loadTexture(Image* image) {
-    GLuint textureId;
-    glGenTextures(1, &textureId); //Make room for our texture
-    glBindTexture(GL_TEXTURE_2D, textureId); //Tell OpenGL which texture to edit
-    //Map the image to the texture
-    glTexImage2D(GL_TEXTURE_2D,                //Always GL_TEXTURE_2D
-                 0,                            //0 for now
-                 GL_RGB,                       //Format OpenGL uses for image
-                 image->width, image->height,  //Width and height
-                 0,                            //The border of the image
-                 GL_RGB, //GL_RGB, because pixels are stored in RGB format
-                 GL_UNSIGNED_BYTE, //GL_UNSIGNED_BYTE, because pixels are stored
-                 //as unsigned numbers
-                 image->pixels);               //The actual pixel data
-    return textureId; //Returns the id of the texture
-}
-
 void handleKeypress(unsigned char key, int x, int y)
 {
     switch(key)
@@ -425,10 +408,6 @@ int main(int argc, char * argv[]) {
     scene = new Scene();
     scene->init();
     
-//    Image* image = loadBMP("./paani/src/white.bmp");
-//    _textureId = loadTexture(image);
-//    delete image;
-
     loadParticles();
     
     // run while the window is open

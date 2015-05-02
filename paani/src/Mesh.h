@@ -38,7 +38,7 @@ public:
     
     ~Mesh(){}
     
-    void LoadMesh(const std::string& Filename);
+    void LoadMesh(const char* Filename);
     
     void Render();
     

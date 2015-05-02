@@ -44,7 +44,7 @@ void Mesh::Clear()
 }
 
 
-void Mesh::LoadMesh(const std::string& Filename)
+void Mesh::LoadMesh(const char* Filename)
 {
     // Release the previously loaded mesh (if it exists)
     Clear();
@@ -52,7 +52,7 @@ void Mesh::LoadMesh(const std::string& Filename)
     Assimp::Importer Importer;
     
     //change according to requirements
-    const aiScene* pScene = Importer.ReadFile(Filename.c_str(), aiProcess_Triangulate | aiProcess_GenSmoothNormals | aiProcess_FlipUVs);
+    const aiScene* pScene = Importer.ReadFile(Filename, aiProcess_Triangulate | aiProcess_GenSmoothNormals | aiProcess_FlipUVs);
     
     InitFromScene(pScene, Filename);
 }

@@ -444,7 +444,7 @@ void ParticleSystem::viscosity(int index)
 
 void ParticleSystem::particleCollision(int index){
     particleBoxCollision(index);
-    particleContainerCollision(index);
+//    particleContainerCollision(index);
 //    particleParticleCollision(index);
 }
 

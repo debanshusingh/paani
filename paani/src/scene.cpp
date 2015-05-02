@@ -104,8 +104,8 @@ void Scene::init(){
     particleSystem->setCellSize(cube->getCellSize());
     particleSystem->setForces(gravity);
     
-    std::string objPath = "./paani/objs/sphere.obj";
-    mesh.LoadMesh(objPath);
+    std::string objPath = "/Users/debanshu/sphere.obj";
+    mesh.LoadMesh(objPath.c_str());
     
     particleSystem->loadContainer(mesh);
 }

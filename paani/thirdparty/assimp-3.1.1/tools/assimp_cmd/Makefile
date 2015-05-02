@@ -43,10 +43,10 @@ RM = /Applications/CMake.app/Contents/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/debanshu/Downloads/assimp-3.1.1
+CMAKE_SOURCE_DIR = /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/assimp-3.1.1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/debanshu/Downloads/assimp-3.1.1
+CMAKE_BINARY_DIR = /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/assimp-3.1.1
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -114,14 +114,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /Users/debanshu/Downloads/assimp-3.1.1 && $(CMAKE_COMMAND) -E cmake_progress_start /Users/debanshu/Downloads/assimp-3.1.1/CMakeFiles /Users/debanshu/Downloads/assimp-3.1.1/tools/assimp_cmd/CMakeFiles/progress.marks
-	cd /Users/debanshu/Downloads/assimp-3.1.1 && $(MAKE) -f CMakeFiles/Makefile2 tools/assimp_cmd/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/debanshu/Downloads/assimp-3.1.1/CMakeFiles 0
+	cd /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/assimp-3.1.1 && $(CMAKE_COMMAND) -E cmake_progress_start /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/assimp-3.1.1/CMakeFiles /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/assimp-3.1.1/tools/assimp_cmd/CMakeFiles/progress.marks
+	cd /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/assimp-3.1.1 && $(MAKE) -f CMakeFiles/Makefile2 tools/assimp_cmd/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/assimp-3.1.1/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /Users/debanshu/Downloads/assimp-3.1.1 && $(MAKE) -f CMakeFiles/Makefile2 tools/assimp_cmd/clean
+	cd /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/assimp-3.1.1 && $(MAKE) -f CMakeFiles/Makefile2 tools/assimp_cmd/clean
 .PHONY : clean
 
 # The main clean target
@@ -130,22 +130,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /Users/debanshu/Downloads/assimp-3.1.1 && $(MAKE) -f CMakeFiles/Makefile2 tools/assimp_cmd/preinstall
+	cd /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/assimp-3.1.1 && $(MAKE) -f CMakeFiles/Makefile2 tools/assimp_cmd/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /Users/debanshu/Downloads/assimp-3.1.1 && $(MAKE) -f CMakeFiles/Makefile2 tools/assimp_cmd/preinstall
+	cd /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/assimp-3.1.1 && $(MAKE) -f CMakeFiles/Makefile2 tools/assimp_cmd/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /Users/debanshu/Downloads/assimp-3.1.1 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/assimp-3.1.1 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/rule:
-	cd /Users/debanshu/Downloads/assimp-3.1.1 && $(MAKE) -f CMakeFiles/Makefile2 tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/rule
+	cd /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/assimp-3.1.1 && $(MAKE) -f CMakeFiles/Makefile2 tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/rule
 .PHONY : tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/rule
 
 # Convenience name for target.
@@ -154,7 +154,7 @@ assimp_cmd: tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/rule
 
 # fast build rule for target.
 assimp_cmd/fast:
-	cd /Users/debanshu/Downloads/assimp-3.1.1 && $(MAKE) -f tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/build.make tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/build
+	cd /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/assimp-3.1.1 && $(MAKE) -f tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/build.make tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/build
 .PHONY : assimp_cmd/fast
 
 CompareDump.o: CompareDump.cpp.o
@@ -162,7 +162,7 @@ CompareDump.o: CompareDump.cpp.o
 
 # target to build an object file
 CompareDump.cpp.o:
-	cd /Users/debanshu/Downloads/assimp-3.1.1 && $(MAKE) -f tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/build.make tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/CompareDump.cpp.o
+	cd /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/assimp-3.1.1 && $(MAKE) -f tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/build.make tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/CompareDump.cpp.o
 .PHONY : CompareDump.cpp.o
 
 CompareDump.i: CompareDump.cpp.i
@@ -170,7 +170,7 @@ CompareDump.i: CompareDump.cpp.i
 
 # target to preprocess a source file
 CompareDump.cpp.i:
-	cd /Users/debanshu/Downloads/assimp-3.1.1 && $(MAKE) -f tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/build.make tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/CompareDump.cpp.i
+	cd /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/assimp-3.1.1 && $(MAKE) -f tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/build.make tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/CompareDump.cpp.i
 .PHONY : CompareDump.cpp.i
 
 CompareDump.s: CompareDump.cpp.s
@@ -178,7 +178,7 @@ CompareDump.s: CompareDump.cpp.s
 
 # target to generate assembly for a file
 CompareDump.cpp.s:
-	cd /Users/debanshu/Downloads/assimp-3.1.1 && $(MAKE) -f tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/build.make tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/CompareDump.cpp.s
+	cd /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/assimp-3.1.1 && $(MAKE) -f tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/build.make tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/CompareDump.cpp.s
 .PHONY : CompareDump.cpp.s
 
 Export.o: Export.cpp.o
@@ -186,7 +186,7 @@ Export.o: Export.cpp.o
 
 # target to build an object file
 Export.cpp.o:
-	cd /Users/debanshu/Downloads/assimp-3.1.1 && $(MAKE) -f tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/build.make tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/Export.cpp.o
+	cd /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/assimp-3.1.1 && $(MAKE) -f tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/build.make tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/Export.cpp.o
 .PHONY : Export.cpp.o
 
 Export.i: Export.cpp.i
@@ -194,7 +194,7 @@ Export.i: Export.cpp.i
 
 # target to preprocess a source file
 Export.cpp.i:
-	cd /Users/debanshu/Downloads/assimp-3.1.1 && $(MAKE) -f tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/build.make tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/Export.cpp.i
+	cd /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/assimp-3.1.1 && $(MAKE) -f tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/build.make tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/Export.cpp.i
 .PHONY : Export.cpp.i
 
 Export.s: Export.cpp.s
@@ -202,7 +202,7 @@ Export.s: Export.cpp.s
 
 # target to generate assembly for a file
 Export.cpp.s:
-	cd /Users/debanshu/Downloads/assimp-3.1.1 && $(MAKE) -f tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/build.make tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/Export.cpp.s
+	cd /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/assimp-3.1.1 && $(MAKE) -f tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/build.make tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/Export.cpp.s
 .PHONY : Export.cpp.s
 
 ImageExtractor.o: ImageExtractor.cpp.o
@@ -210,7 +210,7 @@ ImageExtractor.o: ImageExtractor.cpp.o
 
 # target to build an object file
 ImageExtractor.cpp.o:
-	cd /Users/debanshu/Downloads/assimp-3.1.1 && $(MAKE) -f tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/build.make tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/ImageExtractor.cpp.o
+	cd /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/assimp-3.1.1 && $(MAKE) -f tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/build.make tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/ImageExtractor.cpp.o
 .PHONY : ImageExtractor.cpp.o
 
 ImageExtractor.i: ImageExtractor.cpp.i
@@ -218,7 +218,7 @@ ImageExtractor.i: ImageExtractor.cpp.i
 
 # target to preprocess a source file
 ImageExtractor.cpp.i:
-	cd /Users/debanshu/Downloads/assimp-3.1.1 && $(MAKE) -f tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/build.make tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/ImageExtractor.cpp.i
+	cd /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/assimp-3.1.1 && $(MAKE) -f tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/build.make tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/ImageExtractor.cpp.i
 .PHONY : ImageExtractor.cpp.i
 
 ImageExtractor.s: ImageExtractor.cpp.s
@@ -226,7 +226,7 @@ ImageExtractor.s: ImageExtractor.cpp.s
 
 # target to generate assembly for a file
 ImageExtractor.cpp.s:
-	cd /Users/debanshu/Downloads/assimp-3.1.1 && $(MAKE) -f tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/build.make tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/ImageExtractor.cpp.s
+	cd /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/assimp-3.1.1 && $(MAKE) -f tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/build.make tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/ImageExtractor.cpp.s
 .PHONY : ImageExtractor.cpp.s
 
 Info.o: Info.cpp.o
@@ -234,7 +234,7 @@ Info.o: Info.cpp.o
 
 # target to build an object file
 Info.cpp.o:
-	cd /Users/debanshu/Downloads/assimp-3.1.1 && $(MAKE) -f tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/build.make tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/Info.cpp.o
+	cd /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/assimp-3.1.1 && $(MAKE) -f tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/build.make tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/Info.cpp.o
 .PHONY : Info.cpp.o
 
 Info.i: Info.cpp.i
@@ -242,7 +242,7 @@ Info.i: Info.cpp.i
 
 # target to preprocess a source file
 Info.cpp.i:
-	cd /Users/debanshu/Downloads/assimp-3.1.1 && $(MAKE) -f tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/build.make tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/Info.cpp.i
+	cd /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/assimp-3.1.1 && $(MAKE) -f tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/build.make tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/Info.cpp.i
 .PHONY : Info.cpp.i
 
 Info.s: Info.cpp.s
@@ -250,7 +250,7 @@ Info.s: Info.cpp.s
 
 # target to generate assembly for a file
 Info.cpp.s:
-	cd /Users/debanshu/Downloads/assimp-3.1.1 && $(MAKE) -f tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/build.make tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/Info.cpp.s
+	cd /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/assimp-3.1.1 && $(MAKE) -f tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/build.make tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/Info.cpp.s
 .PHONY : Info.cpp.s
 
 Main.o: Main.cpp.o
@@ -258,7 +258,7 @@ Main.o: Main.cpp.o
 
 # target to build an object file
 Main.cpp.o:
-	cd /Users/debanshu/Downloads/assimp-3.1.1 && $(MAKE) -f tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/build.make tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/Main.cpp.o
+	cd /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/assimp-3.1.1 && $(MAKE) -f tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/build.make tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/Main.cpp.o
 .PHONY : Main.cpp.o
 
 Main.i: Main.cpp.i
@@ -266,7 +266,7 @@ Main.i: Main.cpp.i
 
 # target to preprocess a source file
 Main.cpp.i:
-	cd /Users/debanshu/Downloads/assimp-3.1.1 && $(MAKE) -f tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/build.make tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/Main.cpp.i
+	cd /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/assimp-3.1.1 && $(MAKE) -f tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/build.make tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/Main.cpp.i
 .PHONY : Main.cpp.i
 
 Main.s: Main.cpp.s
@@ -274,7 +274,7 @@ Main.s: Main.cpp.s
 
 # target to generate assembly for a file
 Main.cpp.s:
-	cd /Users/debanshu/Downloads/assimp-3.1.1 && $(MAKE) -f tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/build.make tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/Main.cpp.s
+	cd /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/assimp-3.1.1 && $(MAKE) -f tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/build.make tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/Main.cpp.s
 .PHONY : Main.cpp.s
 
 WriteDumb.o: WriteDumb.cpp.o
@@ -282,7 +282,7 @@ WriteDumb.o: WriteDumb.cpp.o
 
 # target to build an object file
 WriteDumb.cpp.o:
-	cd /Users/debanshu/Downloads/assimp-3.1.1 && $(MAKE) -f tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/build.make tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/WriteDumb.cpp.o
+	cd /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/assimp-3.1.1 && $(MAKE) -f tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/build.make tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/WriteDumb.cpp.o
 .PHONY : WriteDumb.cpp.o
 
 WriteDumb.i: WriteDumb.cpp.i
@@ -290,7 +290,7 @@ WriteDumb.i: WriteDumb.cpp.i
 
 # target to preprocess a source file
 WriteDumb.cpp.i:
-	cd /Users/debanshu/Downloads/assimp-3.1.1 && $(MAKE) -f tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/build.make tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/WriteDumb.cpp.i
+	cd /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/assimp-3.1.1 && $(MAKE) -f tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/build.make tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/WriteDumb.cpp.i
 .PHONY : WriteDumb.cpp.i
 
 WriteDumb.s: WriteDumb.cpp.s
@@ -298,7 +298,7 @@ WriteDumb.s: WriteDumb.cpp.s
 
 # target to generate assembly for a file
 WriteDumb.cpp.s:
-	cd /Users/debanshu/Downloads/assimp-3.1.1 && $(MAKE) -f tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/build.make tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/WriteDumb.cpp.s
+	cd /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/assimp-3.1.1 && $(MAKE) -f tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/build.make tools/assimp_cmd/CMakeFiles/assimp_cmd.dir/WriteDumb.cpp.s
 .PHONY : WriteDumb.cpp.s
 
 # Help Target
@@ -343,6 +343,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /Users/debanshu/Downloads/assimp-3.1.1 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /Users/debanshu/Dropbox/work/code/github/paani/paani/thirdparty/assimp-3.1.1 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

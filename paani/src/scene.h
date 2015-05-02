@@ -9,14 +9,13 @@
 #ifndef __paani__scene__
 #define __paani__scene__
 
-#include "imageloader.h"
+//#include "imageloader.h"
 #include "ParticleSystem.h"
 
 void init(int argc, char* argv[]);
 void display();
 void displayParticles();
 void handleKeypress(unsigned char key, int x, int y);
-GLuint loadTexture(Image* image);
 
 // constants
 const glm::vec2 SCREEN_SIZE(800, 600);
