@@ -62,7 +62,7 @@
 /* Begin PBXFileReference section */
 		1207E9E31AF46AEA002A3096 /* libassimp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libassimp.a; path = "paani/thirdparty/assimp-3.1.1/lib/libassimp.a"; sourceTree = "<group>"; };
 		1207E9EB1AF46E7A002A3096 /* libz.1.2.8.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.8.dylib; path = /usr/local/Cellar/zlib/1.2.8/lib/libz.1.2.8.dylib; sourceTree = "<absolute>"; };
-		1207E9ED1AF46E94002A3096 /* libassimp.3.1.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libassimp.3.1.1.dylib; path = ../../../../../Desktop/libassimp.3.1.1.dylib; sourceTree = "<group>"; };
+		1207E9F11AF47713002A3096 /* Shader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Shader.h; path = src/Shader.h; sourceTree = "<group>"; };
 		12730EA31ADB355800F13D4C /* frag.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = frag.glsl; path = shaders/frag.glsl; sourceTree = "<group>"; };
 		12730EA41ADB355800F13D4C /* vert.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vert.glsl; path = shaders/vert.glsl; sourceTree = "<group>"; };
 		128C4BAA1AE7D0A30084E1E1 /* libpaani.dylib */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libpaani.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,6 +144,7 @@
 		128C4BAE1AE7D10D0084E1E1 /* headers */ = {
 			isa = PBXGroup;
 			children = (
+				1207E9F11AF47713002A3096 /* Shader.h */,
 				12FF55291AE74077002D96F1 /* SOP_Paani.h */,
 				89FFCC541ADE2F74009CD205 /* Mesh.h */,
 				8936A2851AB2244400B9C75D /* scene.h */,
@@ -220,7 +221,6 @@
 		12FF553B1AE74143002D96F1 /* libs */ = {
 			isa = PBXGroup;
 			children = (
-				1207E9ED1AF46E94002A3096 /* libassimp.3.1.1.dylib */,
 				1207E9EB1AF46E7A002A3096 /* libz.1.2.8.dylib */,
 				1207E9E31AF46AEA002A3096 /* libassimp.a */,
 				128C4BCE1AE7DC250084E1E1 /* libGLEW.1.11.0.dylib */,
