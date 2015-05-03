@@ -53,11 +53,15 @@ static PRM_Default	sphSmoothingRadiusDefault(1.5);
 static PRM_Name		iterationsName("timestep", "Timestep");
 static PRM_Default	iterationsDefault(10);
 
+static PRM_Name     fileName("file", "Open file");
+static PRM_Default  fileNameDefault(0, "sphere.obj");
+
 PRM_Template
 SOP_Paani::myTemplateList[] = {
     PRM_Template(PRM_INT,	PRM_Template::PRM_EXPORT_MIN, 1, &particleCountName, &particleCountDefault, 0),
     PRM_Template(PRM_FLT,	PRM_Template::PRM_EXPORT_MIN, 1, &sphSmoothingRadiusName, &sphSmoothingRadiusDefault, 0),
     PRM_Template(PRM_FLT,	PRM_Template::PRM_EXPORT_MIN, 1, &iterationsName, &iterationsDefault, 0),
+    PRM_Template(PRM_FILE, 1, &fileName, &fileNameDefault),
     PRM_Template()
 };
 
