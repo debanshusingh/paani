@@ -56,13 +56,8 @@ namespace HDK_Sample {
         /// of the SOP.
         int		DIVISIONS(fpreal t)	{ return evalInt  ("divs", 0, t); }
         int		COUNT(fpreal t)	{ return evalInt  ("particleCount", 0, t); }
-//        fpreal	XRADIUS(fpreal t)	{ return evalFloat("rad", 0, t); }
-//        fpreal	YRADIUS(fpreal t)	{ return evalFloat("rad", 1, t); }
-//        int		NEGRADIUS()		{ return evalInt  ("nradius", 0, 0); }
-//        fpreal	CENTERX(fpreal t) 	{ return evalFloat("t", 0, t); }
-//        fpreal	CENTERY(fpreal t) 	{ return evalFloat("t", 1, t); }
-//        fpreal	CENTERZ(fpreal t) 	{ return evalFloat("t", 2, t); }
-//        int		ORIENT()		{ return evalInt  ("orient", 0, 0); }
+        void FILE(UT_String &s, fpreal t) { evalString(s, "file", 0, t); }
+        int TOGGLE(fpreal t) { return evalInt ("tapToggle", 0, t); }
         
         /// Member variables are stored in the actual SOP, not with the geometry
         /// In this case these are just used to transfer data to the local 

@@ -53,14 +53,18 @@ public:
 class Scene
 {
 public:
+    
     Scene();
     void init();
     void update();
+    void createContainer(const char* a);
+    void pourFluid();
 
     glm::vec3 gravity;
     int numberOfParticles;
     Cube* cube;
     ParticleSystem* particleSystem;
+    std::string filePath;
     
     Mesh mesh;
 

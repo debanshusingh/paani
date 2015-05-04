@@ -21,9 +21,11 @@
 #include <GU/GU_PrimPart.h>
 #include <stddef.h>
 
+#include <cstring>
+
 using namespace HDK_Sample;
 Scene* scene;
-
+bool initSceneBool;
 
 ///
 /// newSopOperator is the hook that Houdini grabs from this dll
@@ -54,7 +56,10 @@ static PRM_Name		iterationsName("timestep", "Timestep");
 static PRM_Default	iterationsDefault(10);
 
 static PRM_Name     fileName("file", "Open file");
-static PRM_Default  fileNameDefault(0, "sphere.obj");
+static PRM_Default  fileNameDefault(0, "");
+
+static PRM_Name     pourToggle("tapToggle", "TapToggle");
+static PRM_Default  pourToggleDefault(0, "Check to pour water");
 
 PRM_Template
 SOP_Paani::myTemplateList[] = {
@@ -62,6 +67,7 @@ SOP_Paani::myTemplateList[] = {
     PRM_Template(PRM_FLT,	PRM_Template::PRM_EXPORT_MIN, 1, &sphSmoothingRadiusName, &sphSmoothingRadiusDefault, 0),
     PRM_Template(PRM_FLT,	PRM_Template::PRM_EXPORT_MIN, 1, &iterationsName, &iterationsDefault, 0),
     PRM_Template(PRM_FILE, 1, &fileName, &fileNameDefault),
+    PRM_Template(PRM_TOGGLE, 1, &pourToggle, PRMzeroDefaults),
     PRM_Template()
 };
 
@@ -118,10 +124,11 @@ SOP_Paani::SOP_Paani(OP_Network *net, const char *name, OP_Operator *op)
     // star and only bump relevant data IDs, (P and the primitive list),
     // depending on what parameters changed.
     mySopFlags.setManagesDataIDs(true);
-    
+
     scene = new Scene();
     scene->init();
     
+    initSceneBool = true;
     myCurrPoint = -1; // To prevent garbage values from being returned
 }
 
@@ -133,14 +140,26 @@ SOP_Paani::cookMySop(OP_Context &context)
     flags().setTimeDep(1);
     fpreal now = context.getTime();
     
-    // Since we don't have inputs, we don't need to lock them.
-    //    int particleCount = COUNT(now);
+    if(initSceneBool)
+    {
+        initSceneBool = false;
+        
+        UT_String s;
+        FILE(s, now);
+        std::string fileName_s = s.toStdString();
+        
+        if(strlen(fileName_s.c_str()) == 0)
+            initSceneBool = true;
+        else
+            scene->createContainer(fileName_s.c_str());
+    }
+
+    if(TOGGLE(now))
+    {
+        scene->pourFluid();
+    }
     
-    //    scene->numberOfParticles = particleCount;
     scene->update();
-    // now the updated particles should be in vector<Particle> scene->getAllParticles()
-    
-    //    int divisions  = DIVISIONS(now)*2;  // We need twice our divisions of points
     
     // Check to see that there hasn't been a critical error in cooking the SOP.
     if (error() >= UT_ERROR_ABORT)

@@ -37,14 +37,12 @@ GLuint unifLightPos;
 GLuint unifLightColor;
 GLuint unifCamPos;
 
-void handleKeypress(unsigned char key, int x, int y)
-{
-    switch(key)
-    {
-        case 'q' :
-        case 'Q' :
-            exit(0);
-    }
+static void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods){
+    
+    if ((key == GLFW_KEY_ESCAPE || key == GLFW_KEY_Q)  && action == GLFW_PRESS)
+        glfwSetWindowShouldClose(gWindow, GL_TRUE);
+    else if(key == GLFW_KEY_1)
+        scene->pourFluid();
 }
 
 std::string textFileRead(const char *filename)
@@ -397,6 +395,7 @@ void initGLFW(int argc, char* argv[]) {
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     
+    glfwSetKeyCallback(gWindow, keyCallback);
 }
 
 int main(int argc, char * argv[]) {
@@ -407,6 +406,8 @@ int main(int argc, char * argv[]) {
 
     scene = new Scene();
     scene->init();
+    std::string path = "";
+    scene->createContainer(path.c_str());
     
     loadParticles();
     

@@ -62,37 +62,37 @@ Scene::Scene()
     gravity = glm::vec3(0.0,-10.0,0.0);
     
     //number of particles should be a cube (1,8,27...)
-    numberOfParticles = 20;
+    numberOfParticles = 10;
     numberOfParticles *= (numberOfParticles*numberOfParticles);
     
     particleSystem = new ParticleSystem();
     
     cube = new Cube();
     cube->setCenter(glm::vec3(0,0,0));
-    cube->setDimension(glm::vec3(50)*particleSystem->getSmoothingRadius());
+    cube->setDimension(glm::vec3(20)*particleSystem->getSmoothingRadius());
     cube->setCellSize(particleSystem->getSmoothingRadius());       //depends on cube dimensions and particle radius
 
 }
 
 void Scene::init(){
-    glm::vec3 position, velocity = glm::vec3(utilityCore::randomFloat(),0,utilityCore::randomFloat());
+    glm::vec3 position(0), velocity(0);
 
     float smoothingRad = particleSystem->getSmoothingRadius() * 1.f;
-    int damnDim = static_cast <int> (cbrt(numberOfParticles)),
-//    int damnDim = static_cast <int> (sqrt(numberOfParticles)),
+    int damDim = static_cast <int> (cbrt(numberOfParticles)),
+
         i,j,k=0;
     
     //set up dam break
 
     //  start with the highest y, and keep filling squares
     
-    for(i=0; i<damnDim; i++)
+    for(i=0; i<damDim; i++)
     {
-        for(j=0; j<damnDim; j++)
+        for(j=0; j<damDim; j++)
         {
-            for(k=0; k<damnDim; k++)
+            for(k=0; k<damDim; k++)
             {
-                position = (glm::vec3((i)*smoothingRad, j*smoothingRad, k*smoothingRad) - glm::vec3(float(damnDim) * smoothingRad/2.0f))*1.0f;
+                position = (glm::vec3(i,j,k)*smoothingRad - glm::vec3(float(damDim) * smoothingRad/2.0f))*0.9f;
 //                position.z = 1.0f;
                 particleSystem->addParticle(Particle(position, velocity));
             }
@@ -103,9 +103,40 @@ void Scene::init(){
     particleSystem->setLowerBounds(cube->getCenter() - cube->getHalfDimensions());
     particleSystem->setCellSize(cube->getCellSize());
     particleSystem->setForces(gravity);
+}
+
+void Scene::pourFluid()
+{
+    int particleCount = 27;
+    int damDim = static_cast <int> (std::cbrt(particleCount)),
+    i,j,k=0;
+    float smoothingRad = particleSystem->getSmoothingRadius() * 1.f;
+    glm::vec3 position(0), translate(0), velocity(0);
     
-    std::string objPath = "./paani/objs/sphere.obj";
-    mesh.LoadMesh(objPath.c_str());
+    translate = glm::vec3(0,cube->getHalfDimensions().y*0.9,0);
+    velocity = glm::vec3(0,-10,0);
+    
+    for(i=0; i<damDim; i++)
+    {
+        for(j=0; j<damDim; j++)
+        {
+            for(k=0; k<damDim; k++)
+            {
+                position = (glm::vec3(i,j,k)*smoothingRad - glm::vec3(float(damDim) * smoothingRad/2.0f))*0.5f + translate;
+                particleSystem->addParticle(Particle(position, velocity));
+            }
+        }
+    }
+    
+    numberOfParticles += particleCount;
+}
+
+void Scene::createContainer(const char* a)
+{
+    if(a == NULL || strlen(a) == 0)
+        return;
+
+    mesh.LoadMesh(a);
     
     particleSystem->loadContainer(mesh);
 }
