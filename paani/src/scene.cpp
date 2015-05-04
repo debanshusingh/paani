@@ -145,3 +145,8 @@ void Scene::update(){
 
     particleSystem->update();
 }
+
+void Scene::setSmoothingRadius(float r)
+{
+    particleSystem->setSmoothingRadius(r);
+}

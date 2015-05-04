@@ -58,8 +58,7 @@ static PRM_Default	iterationsDefault(10);
 static PRM_Name     fileName("file", "Open file");
 static PRM_Default  fileNameDefault(0, "");
 
-static PRM_Name     pourToggle("tapToggle", "TapToggle");
-static PRM_Default  pourToggleDefault(0, "Check to pour water");
+static PRM_Name     pourToggle("tapToggle", "Check to pour water");
 
 PRM_Template
 SOP_Paani::myTemplateList[] = {
@@ -158,6 +157,8 @@ SOP_Paani::cookMySop(OP_Context &context)
     {
         scene->pourFluid();
     }
+    
+    scene->setSmoothingRadius(SMOOTHINGRADIUS(now));
     
     scene->update();
     

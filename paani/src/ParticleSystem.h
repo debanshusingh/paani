@@ -35,7 +35,7 @@ private:
     const float poly6Const = 315.0 / (64 * PI);
     const float spikyConst = 45.0 / (PI);
     const float restDensity = 1000.0; //1000kg/m3
-    const float smoothingRadius = 1.5f;
+    float smoothingRadius = 1.5f;
     const int solverIterations = 4;
 
     const float relaxation = 0.1f;
@@ -86,6 +86,7 @@ public:
     void setLowerBounds(glm::vec3);
     void setUpperBounds(glm::vec3);
     void setCellSize(float size);
+    void setSmoothingRadius(float);
     
     //Other functions
     void addParticle(Particle);               //Add a particle to the system

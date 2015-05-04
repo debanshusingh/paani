@@ -58,6 +58,7 @@ namespace HDK_Sample {
         int		COUNT(fpreal t)	{ return evalInt  ("particleCount", 0, t); }
         void FILE(UT_String &s, fpreal t) { evalString(s, "file", 0, t); }
         int TOGGLE(fpreal t) { return evalInt ("tapToggle", 0, t); }
+        float SMOOTHINGRADIUS(fpreal t) { return evalFloat ("sphSmoothingRadius", 0, t); }
         
         /// Member variables are stored in the actual SOP, not with the geometry
         /// In this case these are just used to transfer data to the local 

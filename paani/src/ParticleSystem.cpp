@@ -87,6 +87,11 @@ void ParticleSystem::setCellSize(float size)
     gridDim = (upperBounds-lowerBounds) / cellSize;
 }
 
+void ParticleSystem::setSmoothingRadius(float r)
+{
+    smoothingRadius = r;
+}
+
 void ParticleSystem::findNeighbors(int index)
 {
     std::vector<Neighbor> neighborsList;

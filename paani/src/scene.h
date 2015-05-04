@@ -59,7 +59,8 @@ public:
     void update();
     void createContainer(const char* a);
     void pourFluid();
-
+    void setSmoothingRadius(float);
+    
     glm::vec3 gravity;
     int numberOfParticles;
     Cube* cube;
