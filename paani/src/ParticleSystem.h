@@ -36,11 +36,12 @@ private:
     const float spikyConst = 45.0 / (PI);
     const float restDensity = 1000.0; //1000kg/m3
     float smoothingRadius = 1.5f;
-    const int solverIterations = 4;
+    int solverIterations = 4;
 
     const float relaxation = 0.1f;
 
-    const float timeStep = 0.016f;
+    float timeStep = 0.016f;
+    
     float s_6 = smoothingRadius*smoothingRadius*smoothingRadius*
                 smoothingRadius*smoothingRadius*smoothingRadius;
     float s_9 = (smoothingRadius*smoothingRadius*smoothingRadius)*s_6;
@@ -87,6 +88,8 @@ public:
     void setUpperBounds(glm::vec3);
     void setCellSize(float size);
     void setSmoothingRadius(float);
+    void setTimeStep(float);
+    void setSolverIterations(int);
     
     //Other functions
     void addParticle(Particle);               //Add a particle to the system

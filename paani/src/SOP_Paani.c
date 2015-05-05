@@ -46,26 +46,39 @@ newSopOperator(OP_OperatorTable *table)
                                        OP_FLAG_GENERATOR));        // Flag it as generator
 }
 
-static PRM_Name		particleCountName("particleCount", "ParticleCount");
-static PRM_Default	particleCountDefault(27000);
-
 static PRM_Name		sphSmoothingRadiusName("sphSmoothingRadius", "SphSmoothingRadius");
 static PRM_Default	sphSmoothingRadiusDefault(1.5);
+static PRM_Range    sphSmoothingRadiusRange(PRM_RANGE_RESTRICTED, 1.0, PRM_RANGE_UI, 3.0);
 
-static PRM_Name		iterationsName("timestep", "Timestep");
+static PRM_Name		timeStepName("timescale", "Time Scale");
+static PRM_Default	timeStepDefault(1);
+static PRM_Range    timeStepRange(PRM_RANGE_RESTRICTED, 0.1, PRM_RANGE_UI, 10);
+
+static PRM_Name		iterationsName("solverIterations", "Solver Iterations");
 static PRM_Default	iterationsDefault(10);
+static PRM_Range    iterationsRange(PRM_RANGE_RESTRICTED, 1, PRM_RANGE_UI, 20);
 
 static PRM_Name     fileName("file", "Open file");
 static PRM_Default  fileNameDefault(0, "");
+
+static PRM_Name		tapSizeName("tapSize", "Tap Size");
+static PRM_Default	tapSizeDefault(2);
+static PRM_Range    tapSizeRange(PRM_RANGE_RESTRICTED, 2, PRM_RANGE_UI, 5);
+
+static PRM_Name		tapSeparationName("tapParticleSeparation", "Tap Particle Separation");
+static PRM_Default	tapSeparationDefault(0.7);
+static PRM_Range    tapSeparationRange(PRM_RANGE_RESTRICTED, 0.1, PRM_RANGE_UI, 1);
 
 static PRM_Name     pourToggle("tapToggle", "Check to pour water");
 
 PRM_Template
 SOP_Paani::myTemplateList[] = {
-    PRM_Template(PRM_INT,	PRM_Template::PRM_EXPORT_MIN, 1, &particleCountName, &particleCountDefault, 0),
-    PRM_Template(PRM_FLT,	PRM_Template::PRM_EXPORT_MIN, 1, &sphSmoothingRadiusName, &sphSmoothingRadiusDefault, 0),
-    PRM_Template(PRM_FLT,	PRM_Template::PRM_EXPORT_MIN, 1, &iterationsName, &iterationsDefault, 0),
+    PRM_Template(PRM_FLT,	PRM_Template::PRM_EXPORT_MIN, 1, &sphSmoothingRadiusName, &sphSmoothingRadiusDefault, 0, &sphSmoothingRadiusRange),
+    PRM_Template(PRM_FLT,	PRM_Template::PRM_EXPORT_MIN, 1, &timeStepName, &timeStepDefault, 0, &timeStepRange),
+    PRM_Template(PRM_INT,	PRM_Template::PRM_EXPORT_MIN, 1, &iterationsName, &iterationsDefault, 0, &iterationsRange),
     PRM_Template(PRM_FILE, 1, &fileName, &fileNameDefault),
+    PRM_Template(PRM_INT,	PRM_Template::PRM_EXPORT_MIN, 1, &tapSizeName, &tapSizeDefault, 0, &tapSizeRange),
+    PRM_Template(PRM_FLT,	PRM_Template::PRM_EXPORT_MIN, 1, &tapSeparationName, &tapSeparationDefault, 0, &tapSeparationRange),
     PRM_Template(PRM_TOGGLE, 1, &pourToggle, PRMzeroDefaults),
     PRM_Template()
 };
@@ -153,12 +166,10 @@ SOP_Paani::cookMySop(OP_Context &context)
             scene->createContainer(fileName_s.c_str());
     }
 
-    if(TOGGLE(now))
-    {
-        scene->pourFluid();
-    }
-    
+    if(TOGGLE(now)) { scene->pourFluid(TAPSIZE(now), TAPSEPARATION(now)); }
     scene->setSmoothingRadius(SMOOTHINGRADIUS(now));
+    scene->setTimeStep(TIMESCALE(now));
+    scene->setSolverIterations(ITERATIONS(now));
     
     scene->update();
     

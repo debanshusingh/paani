@@ -92,6 +92,16 @@ void ParticleSystem::setSmoothingRadius(float r)
     smoothingRadius = r;
 }
 
+void ParticleSystem::setTimeStep(float t)
+{
+    timeStep = 0.016f * t;
+}
+
+void ParticleSystem::setSolverIterations(int i)
+{
+    solverIterations = i;
+}
+
 void ParticleSystem::findNeighbors(int index)
 {
     std::vector<Neighbor> neighborsList;
@@ -141,26 +151,16 @@ void ParticleSystem::findNeighbors(int index)
 void ParticleSystem::initialiseHashPositions()
 {
     hashGrid.clear();
-
-
     
     for (int i=0; i<particles.size(); i++)
-//    parallel_for<size_t>(0, particles.size(), 1, [=](int i)
     {
-            glm::ivec3 hashPosition;
+        glm::ivec3 hashPosition;
         hashPosition = (particles.at(i).getPredictedPosition() + upperBounds) / cellSize;
         particles.at(i).setHashPosition(hashPosition);
-//        int position = hashPosition.x + gridDim.x * (hashPosition.y + gridDim.y * hashPosition.z);
-        
-        
-//        if(hashGrid[position].size() < 20)
-//        {
-//            hashGrid[position].push_back(i);
-//        }
-        
+
         std::vector<glm::ivec3> neighborCells;
-//
-//        //x
+
+        //x
         neighborCells.push_back(hashPosition);
         neighborCells.push_back(glm::ivec3(0,1,0) + hashPosition);
         neighborCells.push_back(glm::ivec3(0,-1,0) + hashPosition);
@@ -195,12 +195,11 @@ void ParticleSystem::initialiseHashPositions()
         
         for(int j = 0; j < neighborCells.size(); j++)
         {
-            if(isValidCell(neighborCells[j]))
+            if(isValidCell(neighborCells.at(j)))
             {
-                hashGrid[neighborCells[j].x + gridDim.x * (neighborCells[j].y + gridDim.y * neighborCells[j].z)].push_back(i);
+                hashGrid[neighborCells.at(j).x + gridDim.x * (neighborCells.at(j).y + gridDim.y * neighborCells.at(j).z)].push_back(i);
             }
         }
-//    });
     }
 }
 
@@ -325,6 +324,7 @@ void ParticleSystem::update()
         {
             Particle & currParticle = particles.at(i);
             currParticle.setPredictedPosition(currParticle.getPredictedPosition() + currParticle.getDeltaPi());
+            currParticle.setDeltaPi(glm::vec3(0.0));
         });
     }
     
@@ -501,7 +501,6 @@ void ParticleSystem::loadContainer(Mesh& mesh)
     glm::vec3 min(0.0), max(0.0);
     for(int i = 0; i<container.numIndices; ++i)
     {
-        container.triangles[i] *= 10.0f;
         for(int j=0; j<3; j++)
         {
             if(container.triangles[i][j] < min[j])
@@ -583,7 +582,7 @@ void ParticleSystem::createContainerGrid()
 void ParticleSystem::particleContainerCollision(int index)
 {
     Particle& currParticle = particles.at(index);
-    glm::vec3 particlePredictedPos = currParticle.getPredictedPosition();
+    glm::vec3 particlePredictedPos = currParticle.getPredictedPosition() + currParticle.getDeltaPi();
     glm::vec3 particlePos = currParticle.getPosition();
     
     glm::ivec3 hashPosition = currParticle.getHashPosition();

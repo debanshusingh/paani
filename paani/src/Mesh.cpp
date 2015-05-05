@@ -12,11 +12,6 @@
 #include <OpenGL/OpenGL.h>
 #include <GLUT/GLUT.h>
 
-Mesh::MeshEntry::MeshEntry()
-{
-    NumIndices  = 0;
-};
-
 Mesh::MeshEntry::~MeshEntry()
 {
     glDeleteBuffers(1, &VB);

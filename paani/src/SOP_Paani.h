@@ -54,11 +54,13 @@ namespace HDK_Sample {
     private:
         /// The following list of accessors simplify evaluating the parameters
         /// of the SOP.
-        int		DIVISIONS(fpreal t)	{ return evalInt  ("divs", 0, t); }
-        int		COUNT(fpreal t)	{ return evalInt  ("particleCount", 0, t); }
         void FILE(UT_String &s, fpreal t) { evalString(s, "file", 0, t); }
         int TOGGLE(fpreal t) { return evalInt ("tapToggle", 0, t); }
         float SMOOTHINGRADIUS(fpreal t) { return evalFloat ("sphSmoothingRadius", 0, t); }
+        int TIMESCALE(fpreal t) { return evalFloat ("timescale", 0, t); }
+        int ITERATIONS(fpreal t) { return evalInt ("solverIterations", 0, t); }
+        int TAPSIZE(fpreal t) { return evalInt ("tapSize", 0, t); }
+        float TAPSEPARATION(fpreal t) { return evalFloat ("tapParticleSeparation", 0, t); }
         
         /// Member variables are stored in the actual SOP, not with the geometry
         /// In this case these are just used to transfer data to the local 

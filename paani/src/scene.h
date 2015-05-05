@@ -58,8 +58,10 @@ public:
     void init();
     void update();
     void createContainer(const char* a);
-    void pourFluid();
+    void pourFluid(int, float);
     void setSmoothingRadius(float);
+    void setTimeStep(float);
+    void setSolverIterations(int);
     
     glm::vec3 gravity;
     int numberOfParticles;

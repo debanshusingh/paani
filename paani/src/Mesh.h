@@ -33,11 +33,7 @@ struct Vertex
 
 class Mesh
 {
-public:
-    Mesh(){}
-    
-    ~Mesh(){}
-    
+public:    
     void LoadMesh(const char* Filename);
     
     void Render();
@@ -52,7 +48,7 @@ private:
     void Clear();
     
     struct MeshEntry {
-        MeshEntry();
+        MeshEntry() { NumIndices  = 0; }
         
         ~MeshEntry();
         

@@ -62,14 +62,14 @@ Scene::Scene()
     gravity = glm::vec3(0.0,-10.0,0.0);
     
     //number of particles should be a cube (1,8,27...)
-    numberOfParticles = 10;
+    numberOfParticles = 1;
     numberOfParticles *= (numberOfParticles*numberOfParticles);
     
     particleSystem = new ParticleSystem();
     
     cube = new Cube();
     cube->setCenter(glm::vec3(0,0,0));
-    cube->setDimension(glm::vec3(20)*particleSystem->getSmoothingRadius());
+    cube->setDimension(glm::vec3(22)*particleSystem->getSmoothingRadius());
     cube->setCellSize(particleSystem->getSmoothingRadius());       //depends on cube dimensions and particle radius
 
 }
@@ -92,7 +92,7 @@ void Scene::init(){
         {
             for(k=0; k<damDim; k++)
             {
-                position = (glm::vec3(i,j,k)*smoothingRad - glm::vec3(float(damDim) * smoothingRad/2.0f))*0.9f;
+                position = (glm::vec3(i,j,k)*smoothingRad - glm::vec3(float(damDim) * smoothingRad/2.0f));
 //                position.z = 1.0f;
                 particleSystem->addParticle(Particle(position, velocity));
             }
@@ -105,12 +105,12 @@ void Scene::init(){
     particleSystem->setForces(gravity);
 }
 
-void Scene::pourFluid()
+void Scene::pourFluid(int damDim, float separationFactor)
 {
-    int particleCount = 27;
-    int damDim = static_cast <int> (std::cbrt(particleCount)),
-    i,j,k=0;
-    float smoothingRad = particleSystem->getSmoothingRadius() * 1.f;
+    int particleCount = damDim * damDim,
+        i=0,j=0,k=0;
+    
+    float smoothingRad = particleSystem->getSmoothingRadius() * separationFactor;
     glm::vec3 position(0), translate(0), velocity(0);
     
     translate = glm::vec3(0,cube->getHalfDimensions().y*0.9,0);
@@ -118,11 +118,11 @@ void Scene::pourFluid()
     
     for(i=0; i<damDim; i++)
     {
-        for(j=0; j<damDim; j++)
+//        for(j=0; j<damDim; j++)
         {
             for(k=0; k<damDim; k++)
             {
-                position = (glm::vec3(i,j,k)*smoothingRad - glm::vec3(float(damDim) * smoothingRad/2.0f))*0.5f + translate;
+                position = (glm::vec3(i,j,k)*smoothingRad - glm::vec3(float(damDim) * smoothingRad/2.0f)) + translate;
                 particleSystem->addParticle(Particle(position, velocity));
             }
         }
@@ -149,4 +149,14 @@ void Scene::update(){
 void Scene::setSmoothingRadius(float r)
 {
     particleSystem->setSmoothingRadius(r);
+}
+
+void Scene::setTimeStep(float t)
+{
+    particleSystem->setTimeStep(t);
+}
+
+void Scene::setSolverIterations(int i)
+{
+    particleSystem->setSolverIterations(i);
 }
