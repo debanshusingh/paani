@@ -74,6 +74,11 @@ Scene::Scene()
 
 }
 
+Scene::~Scene(){
+    delete cube;
+    delete particleSystem;
+}
+
 void Scene::init(){
     glm::vec3 position(0), velocity(0);
 

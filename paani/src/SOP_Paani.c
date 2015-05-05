@@ -46,7 +46,7 @@ newSopOperator(OP_OperatorTable *table)
                                        OP_FLAG_GENERATOR));        // Flag it as generator
 }
 
-static PRM_Name		sphSmoothingRadiusName("sphSmoothingRadius", "SphSmoothingRadius");
+static PRM_Name		sphSmoothingRadiusName("sphSmoothingRadius", "Sph Smoothing Radius");
 static PRM_Default	sphSmoothingRadiusDefault(1.5);
 static PRM_Range    sphSmoothingRadiusRange(PRM_RANGE_RESTRICTED, 1.0, PRM_RANGE_UI, 3.0);
 
@@ -69,6 +69,18 @@ static PRM_Name		tapSeparationName("tapParticleSeparation", "Tap Particle Separa
 static PRM_Default	tapSeparationDefault(0.7);
 static PRM_Range    tapSeparationRange(PRM_RANGE_RESTRICTED, 0.1, PRM_RANGE_UI, 1);
 
+//static PRM_Name		tapVelocityXName("tapVelocityX", "Tap Velocity X");
+//static PRM_Default	tapVelocityXDefault(0.0);
+//static PRM_Range    tapVelocityXRange(PRM_RANGE_RESTRICTED, -10.0, PRM_RANGE_UI, 10.0);
+
+//static PRM_Name		tapVelocityYName("tapVelocityY", "Tap Velocity Y");
+//static PRM_Default	tapVelocityYDefault(0.0);
+//static PRM_Range    tapVelocityYRange(PRM_RANGE_RESTRICTED, -10.0, PRM_RANGE_UI, 10.0);
+
+//static PRM_Name		tapVelocityXName("tapVelocityX", "Tap Velocity X");
+//static PRM_Default	tapVelocityXDefault(0.0);
+//static PRM_Range    tapVelocityXRange(PRM_RANGE_RESTRICTED, -10.0, PRM_RANGE_UI, 10.0);
+
 static PRM_Name     pourToggle("tapToggle", "Check to pour water");
 
 PRM_Template
@@ -77,6 +89,8 @@ SOP_Paani::myTemplateList[] = {
     PRM_Template(PRM_FLT,	PRM_Template::PRM_EXPORT_MIN, 1, &timeStepName, &timeStepDefault, 0, &timeStepRange),
     PRM_Template(PRM_INT,	PRM_Template::PRM_EXPORT_MIN, 1, &iterationsName, &iterationsDefault, 0, &iterationsRange),
     PRM_Template(PRM_FILE, 1, &fileName, &fileNameDefault),
+    
+    //Tap parameters
     PRM_Template(PRM_INT,	PRM_Template::PRM_EXPORT_MIN, 1, &tapSizeName, &tapSizeDefault, 0, &tapSizeRange),
     PRM_Template(PRM_FLT,	PRM_Template::PRM_EXPORT_MIN, 1, &tapSeparationName, &tapSeparationDefault, 0, &tapSeparationRange),
     PRM_Template(PRM_TOGGLE, 1, &pourToggle, PRMzeroDefaults),
@@ -144,7 +158,9 @@ SOP_Paani::SOP_Paani(OP_Network *net, const char *name, OP_Operator *op)
     myCurrPoint = -1; // To prevent garbage values from being returned
 }
 
-SOP_Paani::~SOP_Paani() {}
+SOP_Paani::~SOP_Paani() {
+    delete scene;
+}
 
 OP_ERROR
 SOP_Paani::cookMySop(OP_Context &context)
@@ -154,16 +170,15 @@ SOP_Paani::cookMySop(OP_Context &context)
     
     if(initSceneBool)
     {
-        initSceneBool = false;
         
         UT_String s;
-        FILE(s, now);
+        FILENAME(s, now);
         std::string fileName_s = s.toStdString();
         
-        if(strlen(fileName_s.c_str()) == 0)
-            initSceneBool = true;
-        else
+        if(strlen(fileName_s.c_str())){
+            initSceneBool = false;
             scene->createContainer(fileName_s.c_str());
+        }
     }
 
     if(TOGGLE(now)) { scene->pourFluid(TAPSIZE(now), TAPSEPARATION(now)); }
@@ -222,7 +237,6 @@ SOP_Paani::cookMySop(OP_Context &context)
         part->appendParticle(ptoff);
     }
     
-
     // Highlight the star which we have just generated.  This routine
     // call clears any currently highlighted geometry, and then it
     // highlights every primitive for this SOP.

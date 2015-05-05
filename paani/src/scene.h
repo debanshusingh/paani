@@ -55,6 +55,7 @@ class Scene
 public:
     
     Scene();
+    ~Scene();
     void init();
     void update();
     void createContainer(const char* a);

@@ -54,7 +54,7 @@ namespace HDK_Sample {
     private:
         /// The following list of accessors simplify evaluating the parameters
         /// of the SOP.
-        void FILE(UT_String &s, fpreal t) { evalString(s, "file", 0, t); }
+        void FILENAME(UT_String &s, fpreal t) { evalString(s, "file", 0, t); }
         int TOGGLE(fpreal t) { return evalInt ("tapToggle", 0, t); }
         float SMOOTHINGRADIUS(fpreal t) { return evalFloat ("sphSmoothingRadius", 0, t); }
         int TIMESCALE(fpreal t) { return evalFloat ("timescale", 0, t); }
