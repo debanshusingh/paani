@@ -60,6 +60,8 @@ public:
     void update();
     void createContainer(const char* a);
     void pourFluid(int, float);
+    void pourFluid(int, float, float vX, float vY, float vZ, float pX, float pY, float pZ);
+    
     void setSmoothingRadius(float);
     void setTimeStep(float);
     void setSolverIterations(int);

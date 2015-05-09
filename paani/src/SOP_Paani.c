@@ -24,8 +24,6 @@
 #include <cstring>
 
 using namespace HDK_Sample;
-Scene* scene;
-bool initSceneBool;
 
 ///
 /// newSopOperator is the hook that Houdini grabs from this dll
@@ -69,17 +67,29 @@ static PRM_Name		tapSeparationName("tapParticleSeparation", "Tap Particle Separa
 static PRM_Default	tapSeparationDefault(0.7);
 static PRM_Range    tapSeparationRange(PRM_RANGE_RESTRICTED, 0.1, PRM_RANGE_UI, 1);
 
-//static PRM_Name		tapVelocityXName("tapVelocityX", "Tap Velocity X");
-//static PRM_Default	tapVelocityXDefault(0.0);
-//static PRM_Range    tapVelocityXRange(PRM_RANGE_RESTRICTED, -10.0, PRM_RANGE_UI, 10.0);
+static PRM_Name		tapVelocityXName("tapVelocityX", "Tap Velocity X");
+static PRM_Default	tapVelocityXDefault(0.0);
+static PRM_Range    tapVelocityXRange(PRM_RANGE_RESTRICTED, -10.0, PRM_RANGE_UI, 10.0);
 
-//static PRM_Name		tapVelocityYName("tapVelocityY", "Tap Velocity Y");
-//static PRM_Default	tapVelocityYDefault(0.0);
-//static PRM_Range    tapVelocityYRange(PRM_RANGE_RESTRICTED, -10.0, PRM_RANGE_UI, 10.0);
+static PRM_Name		tapVelocityYName("tapVelocityY", "Tap Velocity Y");
+static PRM_Default	tapVelocityYDefault(5.0);
+static PRM_Range    tapVelocityYRange(PRM_RANGE_RESTRICTED, -10.0, PRM_RANGE_UI, 10.0);
 
-//static PRM_Name		tapVelocityXName("tapVelocityX", "Tap Velocity X");
-//static PRM_Default	tapVelocityXDefault(0.0);
-//static PRM_Range    tapVelocityXRange(PRM_RANGE_RESTRICTED, -10.0, PRM_RANGE_UI, 10.0);
+static PRM_Name		tapVelocityZName("tapVelocityZ", "Tap Velocity Z");
+static PRM_Default	tapVelocityZDefault(0.0);
+static PRM_Range    tapVelocityZRange(PRM_RANGE_RESTRICTED, -10.0, PRM_RANGE_UI, 10.0);
+
+static PRM_Name		tapPosXName("tapPositionX", "Tap Position X");
+static PRM_Default	tapPosXDefault(0.0);
+static PRM_Range    tapPosXRange(PRM_RANGE_RESTRICTED, -10.0, PRM_RANGE_UI, 10.0);
+
+static PRM_Name		tapPosYName("tapPositionY", "Tap Position Y");
+static PRM_Default	tapPosYDefault(0.0);
+static PRM_Range    tapPosYRange(PRM_RANGE_RESTRICTED, -10.0, PRM_RANGE_UI, 10.0);
+
+static PRM_Name		tapPosZName("tapPositionZ", "Tap Position Z");
+static PRM_Default	tapPosZDefault(0.0);
+static PRM_Range    tapPosZRange(PRM_RANGE_RESTRICTED, -10.0, PRM_RANGE_UI, 10.0);
 
 static PRM_Name     pourToggle("tapToggle", "Check to pour water");
 
@@ -93,6 +103,15 @@ SOP_Paani::myTemplateList[] = {
     //Tap parameters
     PRM_Template(PRM_INT,	PRM_Template::PRM_EXPORT_MIN, 1, &tapSizeName, &tapSizeDefault, 0, &tapSizeRange),
     PRM_Template(PRM_FLT,	PRM_Template::PRM_EXPORT_MIN, 1, &tapSeparationName, &tapSeparationDefault, 0, &tapSeparationRange),
+
+    PRM_Template(PRM_FLT,	PRM_Template::PRM_EXPORT_MIN, 1, &tapVelocityXName, &tapVelocityXDefault, 0, &tapVelocityXRange),
+    PRM_Template(PRM_FLT,	PRM_Template::PRM_EXPORT_MIN, 1, &tapVelocityYName, &tapVelocityYDefault, 0, &tapVelocityYRange),
+    PRM_Template(PRM_FLT,	PRM_Template::PRM_EXPORT_MIN, 1, &tapVelocityZName, &tapVelocityZDefault, 0, &tapVelocityZRange),
+    
+    PRM_Template(PRM_FLT,	PRM_Template::PRM_EXPORT_MIN, 1, &tapPosXName, &tapPosXDefault, 0, &tapPosXRange),
+    PRM_Template(PRM_FLT,	PRM_Template::PRM_EXPORT_MIN, 1, &tapPosYName, &tapPosYDefault, 0, &tapPosYRange),
+    PRM_Template(PRM_FLT,	PRM_Template::PRM_EXPORT_MIN, 1, &tapPosZName, &tapPosZDefault, 0, &tapPosZRange),
+    
     PRM_Template(PRM_TOGGLE, 1, &pourToggle, PRMzeroDefaults),
     PRM_Template()
 };
@@ -149,7 +168,7 @@ SOP_Paani::SOP_Paani(OP_Network *net, const char *name, OP_Operator *op)
     // is a bit redundant, but one could change it to check for the old
     // star and only bump relevant data IDs, (P and the primitive list),
     // depending on what parameters changed.
-    mySopFlags.setManagesDataIDs(true);
+//    mySopFlags.setManagesDataIDs(true);
 
     scene = new Scene();
     scene->init();
@@ -165,12 +184,17 @@ SOP_Paani::~SOP_Paani() {
 OP_ERROR
 SOP_Paani::cookMySop(OP_Context &context)
 {
+    // In addition to destroying everything except the empty P
+    // and topology attributes, this bumps the data IDs for
+    // those remaining attributes, as well as the primitive list
+    // data ID.
+    gdp->clearAndDestroy();
+
     flags().setTimeDep(1);
     fpreal now = context.getTime();
     
     if(initSceneBool)
     {
-        
         UT_String s;
         FILENAME(s, now);
         std::string fileName_s = s.toStdString();
@@ -181,7 +205,20 @@ SOP_Paani::cookMySop(OP_Context &context)
         }
     }
 
-    if(TOGGLE(now)) { scene->pourFluid(TAPSIZE(now), TAPSEPARATION(now)); }
+    if(TOGGLE(now))
+    {
+        scene->pourFluid(
+                         TAPSIZE(now),
+                         TAPSEPARATION(now),
+                         TAPVELX(now),
+                         TAPVELY(now),
+                         TAPVELZ(now),
+                         TAPPOSX(now),
+                         TAPPOSY(now),
+                         TAPPOSZ(now)
+                        );
+    }
+    
     scene->setSmoothingRadius(SMOOTHINGRADIUS(now));
     scene->setTimeStep(TIMESCALE(now));
     scene->setSolverIterations(ITERATIONS(now));
@@ -194,21 +231,6 @@ SOP_Paani::cookMySop(OP_Context &context)
         myCurrPoint = -1;
         return error();
     }
-    
-    //    if (divisions < 4)
-    //    {
-    // With the range restriction we have on the divisions, this
-    // is actually impossible, but it shows how to add an error
-    // message or warning to the SOP.
-    //        addWarning(SOP_MESSAGE, "Invalid divisions");
-    //        divisions = 4;
-    //    }
-    
-    // In addition to destroying everything except the empty P
-    // and topology attributes, this bumps the data IDs for
-    // those remaining attributes, as well as the primitive list
-    // data ID.
-    gdp->clearAndDestroy();
     
     // Start the interrupt server
     UT_AutoInterrupt boss("Building Paani");

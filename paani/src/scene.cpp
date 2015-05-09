@@ -136,6 +136,32 @@ void Scene::pourFluid(int damDim, float separationFactor)
     numberOfParticles += particleCount;
 }
 
+void Scene::pourFluid(int damDim=0, float separationFactor=0, float vX=0, float vY=0, float vZ=0, float pX=0, float pY=0, float pZ=0)
+{
+    int particleCount = damDim * damDim,
+    i=0,j=0,k=0;
+    
+    float smoothingRad = particleSystem->getSmoothingRadius() * separationFactor;
+    glm::vec3 position(0), translate(0), velocity(0), positionChange(pX, pY, pZ);
+    
+    translate = glm::vec3(0,cube->getHalfDimensions().y*0.9,0);
+    velocity = glm::vec3(vX, vY, vZ);
+    
+    for(i=0; i<damDim; i++)
+    {
+        //        for(j=0; j<damDim; j++)
+        {
+            for(k=0; k<damDim; k++)
+            {
+                position = (glm::vec3(i,j,k)*smoothingRad - glm::vec3(float(damDim) * smoothingRad/2.0f)) + translate;
+                particleSystem->addParticle(Particle(position + positionChange, velocity));
+            }
+        }
+    }
+    
+    numberOfParticles += particleCount;
+}
+
 void Scene::createContainer(const char* a)
 {
     if(a == NULL || strlen(a) == 0)

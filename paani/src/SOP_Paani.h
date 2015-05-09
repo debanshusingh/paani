@@ -61,6 +61,14 @@ namespace HDK_Sample {
         int ITERATIONS(fpreal t) { return evalInt ("solverIterations", 0, t); }
         int TAPSIZE(fpreal t) { return evalInt ("tapSize", 0, t); }
         float TAPSEPARATION(fpreal t) { return evalFloat ("tapParticleSeparation", 0, t); }
+
+        float TAPVELX(fpreal t) { return evalFloat ("tapVelocityX", 0, t); }
+        float TAPVELY(fpreal t) { return evalFloat ("tapVelocityY", 0, t); }
+        float TAPVELZ(fpreal t) { return evalFloat ("tapVelocityZ", 0, t); }
+
+        float TAPPOSX(fpreal t) { return evalFloat ("tapPositionX", 0, t); }
+        float TAPPOSY(fpreal t) { return evalFloat ("tapPositionY", 0, t); }
+        float TAPPOSZ(fpreal t) { return evalFloat ("tapPositionZ", 0, t); }
         
         /// Member variables are stored in the actual SOP, not with the geometry
         /// In this case these are just used to transfer data to the local 
@@ -68,6 +76,8 @@ namespace HDK_Sample {
         /// Another use for local data is a cache to store expensive calculations.
         int		myCurrPoint;
         int		myTotalPoints;
+        bool    initSceneBool;
+        Scene*  scene;
     };
 } // End HDK_Sample namespace
 

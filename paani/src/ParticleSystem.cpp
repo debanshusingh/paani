@@ -291,42 +291,42 @@ void ParticleSystem::update()
 //    counter ++;
     
     applyForces(); // apply forces and predict position
-    initialiseHashPositions();  //initialise hash positions to be used in neighbour search
+//    initialiseHashPositions();  //initialise hash positions to be used in neighbour search
 
-    parallel_for<size_t>(0, particles.size()-1, 1, [=](int x)
-    {
-        findNeighbors(x);
-    });
-    
+//    parallel_for<size_t>(0, particles.size()-1, 1, [=](int x)
+//    {
+//        findNeighbors(x);
+//    });
+
     
     parallel_for<size_t>(0, particles.size(), 1, [=](int i)
     {
         particleCollision(i);
     });
-    
-    for (int k=0; k<solverIterations; ++k)
-    {
 
-        parallel_for<size_t>(0, particles.size(), 1, [=](int i)
-        {
-            findLambda(i);
-        });
-        
-        parallel_for<size_t>(0, particles.size(), 1, [=](int i)
-        {
-            Particle & currParticle = particles.at(i);
-            glm::vec3 deltaPi = findDeltaPosition(i);
-            currParticle.setDeltaPi(deltaPi);
-            particleCollision(i);
-        });
-        
-        parallel_for<size_t>(0, particles.size(), 1, [=](int i)
-        {
-            Particle & currParticle = particles.at(i);
-            currParticle.setPredictedPosition(currParticle.getPredictedPosition() + currParticle.getDeltaPi());
-            currParticle.setDeltaPi(glm::vec3(0.0));
-        });
-    }
+//    for (int k=0; k<solverIterations; ++k)
+//    {
+//
+//        parallel_for<size_t>(0, particles.size(), 1, [=](int i)
+//        {
+//            findLambda(i);
+//        });
+//        
+//        parallel_for<size_t>(0, particles.size(), 1, [=](int i)
+//        {
+//            Particle & currParticle = particles.at(i);
+//            glm::vec3 deltaPi = findDeltaPosition(i);
+//            currParticle.setDeltaPi(deltaPi);
+//            particleCollision(i);
+//        });
+//        
+//        parallel_for<size_t>(0, particles.size(), 1, [=](int i)
+//        {
+//            Particle & currParticle = particles.at(i);
+//            currParticle.setPredictedPosition(currParticle.getPredictedPosition() + currParticle.getDeltaPi());
+//            currParticle.setDeltaPi(glm::vec3(0.0));
+//        });
+//    }
     
     parallel_for<size_t>(0, particles.size(), 1, [=](int i)
     {
@@ -335,16 +335,16 @@ void ParticleSystem::update()
         currParticle.setVelocity((currParticle.getPredictedPosition() - currParticle.getPosition()) / timeStep);
         currParticle.setPosition(currParticle.getPredictedPosition());
     });
-    
-    //opengl only
-    //comment out for houdini
-    particlesPos.clear();
-    for (std::vector<Particle>::iterator it=particles.begin(); it < particles.end(); it++)
-    {
-        Particle particle = *it;
-        glm::vec3 partPos = particle.getPosition();
-        particlesPos.push_back(partPos);
-    }
+//
+//    //opengl only
+//    //comment out for houdini
+//    particlesPos.clear();
+//    for (std::vector<Particle>::iterator it=particles.begin(); it < particles.end(); it++)
+//    {
+//        Particle particle = *it;
+//        glm::vec3 partPos = particle.getPosition();
+//        particlesPos.push_back(partPos);
+//    }
 }
 
 void ParticleSystem::findLambda(int index){
