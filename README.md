@@ -1,4 +1,4 @@
-#paani
+paani
 
 CIS 660 Authoring Tool Project
 debanshu singh & sanchit garg
@@ -8,7 +8,8 @@ Based on - Miles Macklin, Matthias Müller: Position Based Fluids, ACM Transacti
 ============
 Requirements
 ============
-Works on Mac OS X 10.9+ only
+Mac OS X 
+
 
 =====
 Usage

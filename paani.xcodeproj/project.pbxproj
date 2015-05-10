@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1207E9EC1AF46E7A002A3096 /* libz.1.2.8.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1207E9EB1AF46E7A002A3096 /* libz.1.2.8.dylib */; };
 		1207E9F01AF47082002A3096 /* libassimp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1207E9E31AF46AEA002A3096 /* libassimp.a */; };
+		120969001AFFE7E300E6A4E9 /* libz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 120968FF1AFFE7E300E6A4E9 /* libz.a */; };
 		128C4BCF1AE7DC250084E1E1 /* libGLEW.1.11.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 128C4BCE1AE7DC250084E1E1 /* libGLEW.1.11.0.dylib */; };
 		12CB7C431AA272990095666D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 12CB7C421AA272990095666D /* main.cpp */; };
 		12CB7C461AA275E90095666D /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12CB7C451AA275E90095666D /* OpenGL.framework */; };
@@ -39,12 +39,11 @@
 
 /* Begin PBXFileReference section */
 		1207E9E31AF46AEA002A3096 /* libassimp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libassimp.a; path = "paani/thirdparty/assimp-3.1.1/lib/libassimp.a"; sourceTree = "<group>"; };
-		1207E9EB1AF46E7A002A3096 /* libz.1.2.8.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.8.dylib; path = /usr/local/Cellar/zlib/1.2.8/lib/libz.1.2.8.dylib; sourceTree = "<absolute>"; };
 		1207E9F11AF47713002A3096 /* Shader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Shader.h; path = src/Shader.h; sourceTree = "<group>"; };
+		120968FF1AFFE7E300E6A4E9 /* libz.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libz.a; path = paani/thirdparty/osx/zlib/lib/libz.a; sourceTree = "<group>"; };
 		12730EA31ADB355800F13D4C /* frag.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = frag.glsl; path = shaders/frag.glsl; sourceTree = "<group>"; };
 		12730EA41ADB355800F13D4C /* vert.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vert.glsl; path = shaders/vert.glsl; sourceTree = "<group>"; };
-		128C4BBC1AE7D6BB0084E1E1 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		128C4BCE1AE7DC250084E1E1 /* libGLEW.1.11.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.1.11.0.dylib; path = /usr/local/Cellar/glew/1.11.0/lib/libGLEW.1.11.0.dylib; sourceTree = "<absolute>"; };
+		128C4BCE1AE7DC250084E1E1 /* libGLEW.1.11.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.1.11.0.dylib; path = paani/thirdparty/osx/glew/lib/libGLEW.1.11.0.dylib; sourceTree = "<group>"; };
 		12CB7C421AA272990095666D /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		12CB7C451AA275E90095666D /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		12CB7C471AA276870095666D /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
@@ -60,9 +59,9 @@
 		896ABBF81AA2985C001480C1 /* Particle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Particle.h; path = src/Particle.h; sourceTree = "<group>"; };
 		896ABBF91AA2985C001480C1 /* ParticleSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParticleSystem.cpp; sourceTree = "<group>"; };
 		896ABBFA1AA2985C001480C1 /* ParticleSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParticleSystem.h; path = src/ParticleSystem.h; sourceTree = "<group>"; };
-		897E7F511AD4D91C0056699C /* libtbb.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libtbb.dylib; path = "/usr/local/Cellar/tbb/4.3-20141023/lib/libtbb.dylib"; sourceTree = "<absolute>"; };
-		897E7F521AD4D91C0056699C /* libtbbmalloc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libtbbmalloc.dylib; path = "/usr/local/Cellar/tbb/4.3-20141023/lib/libtbbmalloc.dylib"; sourceTree = "<absolute>"; };
-		8995F2D11AE06CFD00E49A3F /* libglfw3.3.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw3.3.1.dylib; path = /usr/local/Cellar/glfw3/3.1/lib/libglfw3.3.1.dylib; sourceTree = "<absolute>"; };
+		897E7F511AD4D91C0056699C /* libtbb.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libtbb.dylib; path = paani/thirdparty/osx/tbb/lib/libtbb.dylib; sourceTree = "<group>"; };
+		897E7F521AD4D91C0056699C /* libtbbmalloc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libtbbmalloc.dylib; path = paani/thirdparty/osx/tbb/lib/libtbbmalloc.dylib; sourceTree = "<group>"; };
+		8995F2D11AE06CFD00E49A3F /* libglfw3.3.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw3.3.1.dylib; path = paani/thirdparty/osx/glfw/lib/libglfw3.3.1.dylib; sourceTree = "<group>"; };
 		89CD666E1AF87E2000A8B358 /* SOP_Paani.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SOP_Paani.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		89CD66711AF87E2000A8B358 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89FFCC531ADE2F74009CD205 /* Mesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Mesh.cpp; sourceTree = "<group>"; };
@@ -74,8 +73,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				120969001AFFE7E300E6A4E9 /* libz.a in Frameworks */,
 				1207E9F01AF47082002A3096 /* libassimp.a in Frameworks */,
-				1207E9EC1AF46E7A002A3096 /* libz.1.2.8.dylib in Frameworks */,
 				128C4BCF1AE7DC250084E1E1 /* libGLEW.1.11.0.dylib in Frameworks */,
 				8995F2D21AE06CFD00E49A3F /* libglfw3.3.1.dylib in Frameworks */,
 				897E7F531AD4D91C0056699C /* libtbb.dylib in Frameworks */,
@@ -119,14 +118,6 @@
 			name = headers;
 			sourceTree = "<group>";
 		};
-		128C4BBB1AE7D6BB0084E1E1 /* buildHDK */ = {
-			isa = PBXGroup;
-			children = (
-				128C4BBC1AE7D6BB0084E1E1 /* main.cpp */,
-			);
-			path = buildHDK;
-			sourceTree = "<group>";
-		};
 		12CB7C411AA272990095666D /* src */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,7 +140,6 @@
 				12CB7C471AA276870095666D /* IOKit.framework */,
 				12CB7C451AA275E90095666D /* OpenGL.framework */,
 				12E928A51AA26FF600D11B5B /* paani */,
-				128C4BBB1AE7D6BB0084E1E1 /* buildHDK */,
 				89CD666F1AF87E2000A8B358 /* SOP_Paani */,
 				12E928A41AA26FF600D11B5B /* Products */,
 			);
@@ -185,7 +175,7 @@
 		12FF553B1AE74143002D96F1 /* libs */ = {
 			isa = PBXGroup;
 			children = (
-				1207E9EB1AF46E7A002A3096 /* libz.1.2.8.dylib */,
+				120968FF1AFFE7E300E6A4E9 /* libz.a */,
 				1207E9E31AF46AEA002A3096 /* libassimp.a */,
 				128C4BCE1AE7DC250084E1E1 /* libGLEW.1.11.0.dylib */,
 				8995F2D11AE06CFD00E49A3F /* libglfw3.3.1.dylib */,
@@ -308,7 +298,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd /Library/Frameworks/Houdini.framework/Versions/14.0.258/Resources/; source houdini_setup;cd -;\nhcustom -g -I./paani/thirdparty/osx/glew/include -I./paani/thirdparty/osx/glfw/include -I./paani/thirdparty/osx/glm/ -I/Library/Frameworks/Houdini.framework/Versions/14.0.258/Resources/toolkit/include -I/usr/local/include -I./paani/thirdparty/assimp-3.1.1/include/ -L./paani/thirdparty/assimp-3.1.1/lib/ -lassimp paani/src/SOP_Paani.C;\ncp build/paani.build/Release/paani.build/Objects-normal/x86_64/*.o paani/src/;\n/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -bundle -flat_namespace -undefined suppress paani/src/utilities.o paani/src/Particle.o paani/src/Mesh.o paani/src/ParticleSystem.o paani/src/scene.o paani/src/SOP_Paani.o -arch x86_64 -fobjc-gc -I./../thirdparty/osx/glm -L./paani/thirdparty/assimp-3.1.1/lib/ -lassimp -framework OpenGL -framework Cocoa -stdlib=libstdc++ -o $HOME/Library/Preferences/houdini/14.0/dso/SOP_Paani.dylib";
+			shellScript = "cd /Library/Frameworks/Houdini.framework/Versions/14.0.258/Resources/; source houdini_setup;cd -;\nhcustom -g -I./paani/thirdparty/osx/glew/include -I./paani/thirdparty/osx/glfw/include -I./paani/thirdparty/osx/glm/ -I/Library/Frameworks/Houdini.framework/Versions/14.0.258/Resources/toolkit/include -I/usr/local/include -I./paani/thirdparty/assimp-3.1.1/include/ -L./paani/thirdparty/assimp-3.1.1/lib/ -lassimp paani/src/SOP_Paani.C;\ncp Build/Intermediates/paani.build/Release/paani.build/Objects-normal/x86_64/*.o paani/src/;\n/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -bundle -flat_namespace -undefined suppress paani/src/utilities.o paani/src/Particle.o paani/src/Mesh.o paani/src/ParticleSystem.o paani/src/scene.o paani/src/SOP_Paani.o -arch x86_64 -fobjc-gc -I./../thirdparty/osx/glm -L./paani/thirdparty/assimp-3.1.1/lib/ -lassimp -framework OpenGL -framework Cocoa -stdlib=libstdc++ -o $HOME/Library/Preferences/houdini/14.0/dso/SOP_Paani.dylib";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -437,17 +427,17 @@
 					"$(PROJECT_DIR)/paani/thirdparty/osx/glm",
 					"$(PROJECT_DIR)/paani/thirdparty/osx/glew/include",
 					"$(PROJECT_DIR)/paani/thirdparty/osx/glfw/include",
+					"$(PROJECT_DIR)/paani/thirdparty/osx/tbb/include",
+					"$(PROJECT_DIR)/paani/thirdparty/osx/zlib/include",
 					"$(PROJECT_DIR)/paani/thirdparty/assimp-3.1.1/include",
-					/usr/local/include,
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/paani/thirdparty/osx/glew/lib",
-					"/usr/local/Cellar/tbb/4.3-20141023/lib",
-					/usr/local/Cellar/glfw3/3.1/lib,
-					/usr/local/Cellar/glew/1.11.0/lib,
+					"$(PROJECT_DIR)/paani/thirdparty/osx/tbb/lib",
+					"$(PROJECT_DIR)/paani/thirdparty/osx/glfw/lib",
+					"$(PROJECT_DIR)/paani/thirdparty/osx/zlib/lib",
 					/usr/local/lib,
 					"$(PROJECT_DIR)/paani/thirdparty/assimp-3.1.1/lib",
-					/usr/local/Cellar/zlib/1.2.8/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -464,17 +454,17 @@
 					"$(PROJECT_DIR)/paani/thirdparty/osx/glm",
 					"$(PROJECT_DIR)/paani/thirdparty/osx/glew/include",
 					"$(PROJECT_DIR)/paani/thirdparty/osx/glfw/include",
+					"$(PROJECT_DIR)/paani/thirdparty/osx/tbb/include",
+					"$(PROJECT_DIR)/paani/thirdparty/osx/zlib/include",
 					"$(PROJECT_DIR)/paani/thirdparty/assimp-3.1.1/include",
-					/usr/local/include,
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/paani/thirdparty/osx/glew/lib",
-					"/usr/local/Cellar/tbb/4.3-20141023/lib",
-					/usr/local/Cellar/glfw3/3.1/lib,
-					/usr/local/Cellar/glew/1.11.0/lib,
+					"$(PROJECT_DIR)/paani/thirdparty/osx/tbb/lib",
+					"$(PROJECT_DIR)/paani/thirdparty/osx/glfw/lib",
+					"$(PROJECT_DIR)/paani/thirdparty/osx/zlib/lib",
 					/usr/local/lib,
 					"$(PROJECT_DIR)/paani/thirdparty/assimp-3.1.1/lib",
-					/usr/local/Cellar/zlib/1.2.8/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -544,6 +534,7 @@
 				89CD66741AF87E2000A8B358 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
