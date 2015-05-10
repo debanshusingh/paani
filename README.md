@@ -44,3 +44,4 @@ Thirdparty Sources
 04. http://lists.apple.com/archives/mac­opengl/2012/Jul/msg00038.html
 05. Utility Core ­ print functions and math constants (Yining Karl Li) 06. www.sidefx.com/docs/hdk14.0/_h_d_k__intro__compiling.html
 07. http://www.deborahrfowler.com/C++Resources/HDK/HDK12_Intro.pdf
+08. http://www.orbolt.com​­ houdini render backdrop geometry & sky hdr
