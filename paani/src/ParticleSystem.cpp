@@ -12,8 +12,6 @@
 #include <tbb/parallel_for.h>
 #include <tbb/blocked_range.h>
 
-int counter = 0;
-
 using namespace tbb;
 
 //Getter functions
@@ -288,15 +286,13 @@ glm::vec3 ParticleSystem::gradientConstraintForNeighbor(int index, int neighborI
 
 void ParticleSystem::update()
 {
-//    counter ++;
-    
     applyForces(); // apply forces and predict position
-//    initialiseHashPositions();  //initialise hash positions to be used in neighbour search
+    initialiseHashPositions();  //initialise hash positions to be used in neighbour search
 
-//    parallel_for<size_t>(0, particles.size()-1, 1, [=](int x)
-//    {
-//        findNeighbors(x);
-//    });
+    parallel_for<size_t>(0, particles.size()-1, 1, [=](int x)
+    {
+        findNeighbors(x);
+    });
 
     
     parallel_for<size_t>(0, particles.size(), 1, [=](int i)
@@ -304,29 +300,29 @@ void ParticleSystem::update()
         particleCollision(i);
     });
 
-//    for (int k=0; k<solverIterations; ++k)
-//    {
-//
-//        parallel_for<size_t>(0, particles.size(), 1, [=](int i)
-//        {
-//            findLambda(i);
-//        });
-//        
-//        parallel_for<size_t>(0, particles.size(), 1, [=](int i)
-//        {
-//            Particle & currParticle = particles.at(i);
-//            glm::vec3 deltaPi = findDeltaPosition(i);
-//            currParticle.setDeltaPi(deltaPi);
-//            particleCollision(i);
-//        });
-//        
-//        parallel_for<size_t>(0, particles.size(), 1, [=](int i)
-//        {
-//            Particle & currParticle = particles.at(i);
-//            currParticle.setPredictedPosition(currParticle.getPredictedPosition() + currParticle.getDeltaPi());
-//            currParticle.setDeltaPi(glm::vec3(0.0));
-//        });
-//    }
+    for (int k=0; k<solverIterations; ++k)
+    {
+
+        parallel_for<size_t>(0, particles.size(), 1, [=](int i)
+        {
+            findLambda(i);
+        });
+        
+        parallel_for<size_t>(0, particles.size(), 1, [=](int i)
+        {
+            Particle & currParticle = particles.at(i);
+            glm::vec3 deltaPi = findDeltaPosition(i);
+            currParticle.setDeltaPi(deltaPi);
+            particleCollision(i);
+        });
+        
+        parallel_for<size_t>(0, particles.size(), 1, [=](int i)
+        {
+            Particle & currParticle = particles.at(i);
+            currParticle.setPredictedPosition(currParticle.getPredictedPosition() + currParticle.getDeltaPi());
+            currParticle.setDeltaPi(glm::vec3(0.0));
+        });
+    }
     
     parallel_for<size_t>(0, particles.size(), 1, [=](int i)
     {
@@ -430,63 +426,15 @@ void ParticleSystem::viscosity(int index)
         if(particles.at(neighbors[i]).getDensity() > EPSILON)
         {
             newVelocity += (1.0f/particles.at(neighbors[i]).getDensity()) * (particles.at(neighbors[i]).getVelocity() - currVelocity) * wPoly6Kernel( (currPosition - particles.at(neighbors.at(i)).getPredictedPosition()), smoothingRadius);
-        
-//          newVelocity += (particles.at(neighbors.at(i)).getVelocity() - currVelocity) * wPoly6Kernel( (currPosition - particles.at(neighbors.at(i)).getPredictedPosition()), smoothingRadius);
         }
     }
     
     currParticle.setVelocity(currVelocity + 0.01f * newVelocity);
-//    currParticle.setVelocity(currVelocity + 0.1f*newVelocity);
 }
 
 void ParticleSystem::particleCollision(int index){
     particleBoxCollision(index);
     particleContainerCollision(index);
-//    particleParticleCollision(index);
-}
-
-void ParticleSystem::particleParticleCollision(int index)
-{
-//    //as per http://stackoverflow.com/questions/19189322/proper-sphere-collision-resolution-with-different-sizes-and-mass-using-xna-monog
-//    
-//    std::vector<int> neighbors = particles.at(index).getNeighborIndices();
-//    
-//    glm::vec3 currentParticlePosition = particles.at(index).getPredictedPosition(),
-//                neighborPosition,
-//                particleVelocity,
-//                neighborVelocity;
-//
-//    
-//    glm::vec3 relativeVelocity,
-//                collisionNormal,
-//                vCollision;  //components of relative velocity about collision normal and direction
-//    
-//    
-//    float distance, radius = particles.at(index).getRadius();
-//    
-//    radius= smoothingRadius;
-//    for(int i=0; i<neighbors.size(); i++)
-//    {
-//        particleVelocity = particles.at(index).getVelocity();
-//
-//        neighborPosition = particles.at(neighbors.at(i)).getPredictedPosition();
-//        neighborVelocity = particles.at(neighbors.at(i)).getVelocity();
-//        
-//        distance = glm::distance(currentParticlePosition, neighborPosition);
-//        
-//        if(distance < 2 * radius + EPSILON)
-//        {
-//            //resolve collision
-//            relativeVelocity = particleVelocity - neighborVelocity;
-//            
-//            collisionNormal = glm::normalize(currentParticlePosition - neighborPosition);
-//            
-//            vCollision = glm::dot(collisionNormal, relativeVelocity) * collisionNormal;
-//            
-//            particles.at(index).setVelocity(particleVelocity - vCollision);
-//            particles.at(neighbors.at(i)).setVelocity(neighborVelocity + vCollision);
-//        }
-//    }
 }
 
 void ParticleSystem::loadContainer(Mesh& mesh)
